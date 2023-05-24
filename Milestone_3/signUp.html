@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>Sign up</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <!-- Tweaks for older IEs-->
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <div class="card-body p-md-5">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+          <p class="text-center h1 fw-bold mb-5 mt-4">Sign up</p>
+
+          <form>
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="bi bi-person" style="font-size: 25px;height: 75px; width: 35px;"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input type="text" id="formName" class="form-control" onchange="verifyInputs()" />
+                <label
+                  class="form-label"
+                  for="formName"
+                  style="margin-left: 0px"
+                  >Your Name</label
+                >
+                <div class="form-notch">
+                  <div class="form-notch-leading" style="width: 9px"></div>
+                  <div class="form-notch-middle" style="width: 71.2px"></div>
+                  <div class="form-notch-trailing"></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="bi bi-person" style="font-size: 25px;height: 75px; width: 35px;"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input
+                  type="input"
+                  id="formUsername"
+                  class="form-control"
+                  onchange="verifyInputs()"
+                />
+                <label
+                  class="form-label"
+                  for="formUsername"
+                  style="margin-left: 0px"
+                  >Username
+                </label>
+                <div class="form-notch">
+                  <div class="form-notch-leading" style="width: 9px"></div>
+                  <div class="form-notch-middle" style="width: 136px"></div>
+                  <div class="form-notch-trailing"></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="bi bi-envelope-fill" style="font-size: 25px; display: block;height: 75px; width: 35px;"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input type="email" id="formEmail" class="form-control" onchange="verifyInputs()"/>
+                <label
+                  class="form-label"
+                  for="formEmail"
+                  style="margin-left: 0px"
+                  >Your Email</label
+                >
+                <div class="form-notch">
+                  <div class="form-notch-leading" style="width: 9px"></div>
+                  <div class="form-notch-middle" style="width: 69.6px"></div>
+                  <div class="form-notch-trailing"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="bi bi-lock-fill" style="font-size: 25px; display: block;height: 75px; width: 35px;"></i> 
+              <div class="form-outline flex-fill mb-0">
+                <input
+                  type="password"
+                  id="formPassword"
+                  class="form-control"
+                  onchange="verifyInputs()"
+                />
+                <label
+                  class="form-label"
+                  for="formPassword"
+                  style="margin-left: 0px"
+                  >Password</label
+                >
+                <div class="form-notch">
+                  <div class="form-notch-leading" style="width: 9px"></div>
+                  <div class="form-notch-middle" style="width: 64px"></div>
+                  <div class="form-notch-trailing"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="d-flex flex-row align-items-center mb-4">
+                <i class="bi bi-bank2" style="font-size: 25px; display: block;height: 75px; width: 35px;"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input
+                  type="password"
+                  id="form3Example4cd"
+                  class="form-control"
+                />
+                <label
+                  class="form-label"
+                  for="form3Example4cd"
+                  style="margin-left: 0px"
+                  >Bank account number
+                </label>
+                <div class="form-notch">
+                  <div class="form-notch-leading" style="width: 9px"></div>
+                  <div class="form-notch-middle" style="width: 136px"></div>
+                  <div class="form-notch-trailing"></div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+              <button type="button" class="btn btn-primary btn-lg" id="registerBtn" disabled onclick="Register()">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+            class="img-fluid"
+            alt="Sample image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+        function verifyInputs(){
+            var valid = true;
+            var name = document.getElementById("formName").value;
+
+            var username = document.getElementById("formUsername").value;
+                
+            var email = document.getElementById("formEmail").value;
+            var password = document.getElementById("formPassword").value;
+
+            if (name == "" || username == "" || email == "" || password == "") {
+                valid = false;
+            }
+
+            if (valid){
+                document.getElementById("registerBtn").disabled = false;
+            }
+            else{
+                document.getElementById("registerBtn").disabled = true;
+            }
+        }
+    </script>
+
+    <script>
+        function Register() {
+            var name = document.getElementById("formName").value;
+            var username = document.getElementById("formUsername").value;
+            var email = document.getElementById("formEmail").value;
+            var password = document.getElementById("formPassword").value;
+            if (username == "admin" || username == "banker" || username == "user") {
+                alert("username already exists!");
+                return;
+            }
+            alert("Register successful!! \n\nName: " + name + "\nUsername: " + username + "\nEmail: " + email + "\nPassword: Hidden ;)");
+            
+        }
+    </script>
+  </body>
+</html>
