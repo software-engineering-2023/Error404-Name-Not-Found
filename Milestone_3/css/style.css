@@ -287,12 +287,12 @@ button {
     float: left;
     padding-top: 75px;
 }
-.more_bt {
+.transactions_btn {
     width: 170px;
     float: left;
 }
 
-.more_bt a {
+.transactions_btn a {
     width: 100%;
     float: left;
     font-size: 16px;
@@ -304,16 +304,16 @@ button {
     text-transform: uppercase;
     font-weight: bold;
 }
-.more_bt a:hover {
+.transactions_btn a:hover {
     color: #000;
     border: 2px solid #ff5a58;
 }
-.contact_bt {
+.transfer_btn {
     width: 170px;
     float: left;
     margin-left: 15px;
 }
-.contact_bt a {
+.transfer_btn a {
     width: 100%;
     float: left;
     font-size: 16px;
@@ -325,7 +325,7 @@ button {
     text-transform: uppercase;
     font-weight: bold;
 }
-.contact_bt a:hover {
+.transfer_btn a:hover {
     color: #181818;
     border: 2px solid #ff5a58;
 }
@@ -370,7 +370,7 @@ button {
     color: #060606;
     margin-left: 0px;
 }
-.moremore_bt {
+.moretransactions_btn {
     width: 170px;
     float: left;
     margin-top: 30px;
@@ -378,7 +378,7 @@ button {
     z-index: 2;
 }
 
-.moremore_bt a {
+.moretransactions_btn a {
     width: 100%;
     float: left;
     font-size: 16px;
@@ -388,7 +388,7 @@ button {
     padding: 10px 0px;
     border-radius: 40px;
 }
-.moremore_bt a:hover {
+.moretransactions_btn a:hover {
     color: #181818;
     border: 2px solid #ff5a58;
 }
@@ -476,14 +476,14 @@ button {
     text-align: center;
     margin-left: 0px;
 }
-.moremore_bt_1 {
+.moretransactions_btn_1 {
     width: 170px;
     margin: 0 auto;
     text-align: center;
     margin-top: 30px;
 }
 
-.moremore_bt_1 a {
+.moretransactions_btn_1 a {
     width: 100%;
     float: left;
     font-size: 16px;
@@ -493,7 +493,7 @@ button {
     padding: 10px 0px;
     border-radius: 40px;
 }
-.moremore_bt_1 a:hover {
+.moretransactions_btn_1 a:hover {
     color: #ffffff;
     border: 2px solid #ffffff;
 }
