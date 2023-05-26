@@ -3,212 +3,155 @@ const transactions_response = [
         "title": "Transaction 1",
         "date": "2021-01-01",
         "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
-        "type": "briefcase",
-    },
-    {
-        "title": "hawhaw 2",
-        "date": "2022-01-01",
-        "amount": 200,
-        "type": "exchange",
-    },
-    {
-        "title": "hawhw 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
-        "title": "Transaction 1",
-        "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
-        "title": "hawhw 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
-        "title": "hawhw 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
-    },
-    {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
-        "title": "hawhw 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
+    },    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
-        "title": "hawhw 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
-        "title": "hawhw 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    },
-    {
         "title": "Transaction 1",
         "date": "2021-01-01",
-        "amount": 1000,
+        "amount": -1000,
+        "bankOrCredit": "Bank",
         "type": "briefcase",
     },
     {
         "title": "Transaction 2",
         "date": "2022-01-01",
+        "bankOrCredit": "credit",
         "amount": 200,
         "type": "exchange",
     },
     {
-        "title": "Transaction 3",
-        "date": "2022-1 1-01",
-        "amount": 230,
-        "type": "cutlery"
-    }
+        "title": "Transaction 1",
+        "date": "2021-01-01",
+        "amount": -1000,
+        "bankOrCredit": "Bank",
+        "type": "briefcase",
+    },
+    {
+        "title": "Transaction 2",
+        "date": "2022-01-01",
+        "bankOrCredit": "credit",
+        "amount": 200,
+        "type": "exchange",
+    },
+    {
+        "title": "Transaction 1",
+        "date": "2021-01-01",
+        "amount": -1000,
+        "bankOrCredit": "Bank",
+        "type": "briefcase",
+    },
+    {
+        "title": "Transaction 2",
+        "date": "2022-01-01",
+        "bankOrCredit": "credit",
+        "amount": 200,
+        "type": "exchange",
+    },
     
 ]
 
@@ -222,9 +165,17 @@ function fillTable(newpage){
         let type = transactions_response[i]["type"];
         if (!type) type = "bed";
         // let type = "cutlery";
+        var bankOrCredit;
+        if (transactions_response[i]["bankOrCredit"] == "credit") {
+            bankOrCredit = '<i class="bi bi-credit-card-fill"></i>';
+        }
+        else {
+            bankOrCredit = '<i class="bi bi-bank2"></i>';
+        }
         let arrow = transactions_response[i]["amount"] > 0 ? "<span class='fa fa-long-arrow-up mr-1'></span>" : "<span class='fa fa-long-arrow-down mr-1'></span>";
         transactions_table_html += "<tr>" +
             "<td scope='row'> <span class='fa fa-" + type + " mr-1'></span>"  + transactions_response[i]["title"] + "</td>" +
+            "<td scope='row'>"  + bankOrCredit + "</td>" +
             "<td class='text-muted'>" + transactions_response[i]["date"] + "</td>" +
             "<td class='d-flex justify-content-end align-items-center'>" + arrow + "$ " + transactions_response[i]["amount"] + "</td>" +
             "</tr>";

@@ -3,25 +3,25 @@
 ## Functionalities
 1. [ ] Home
 
-2. [ ] Sign-Up
-   1. [ ] Has bank account
-   2. [ ] No bank account
+2. [x] Sign-Up
+   1. [x] Has bank account
+   2. [x] No bank account
 
-3. [ ] Sign-In
+3. [x] Sign-In
 
-4. [ ] Application for service
-   1. [ ] Credit card
-   2. [ ] loan 
-      1. [ ] personal loan
-      2. [ ] car loan
+4. [x] Application for service
+   1. [x] Credit card
+   2. [x] loan 
+      1. [x] personal loan
+      2. [x] car loan
 
-5. [ ] View Transactions
-   1. [ ] Bank account
-   2. [ ] Credit card
+5. [x] View Transactions
+   1. [x] Bank account
+   2. [x] Credit card
   
 6. [ ] Credit card points
    1. [ ] Redeem points
-   2. [ ] View points
+   2. [x] View points
 
 7. [ ] Pay credit card bill
    1. [ ] Fully

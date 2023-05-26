@@ -1,13 +1,163 @@
 const navbar = document.querySelector('nav');
 const footer = document.querySelector('footer');
 
+let creditApplications = [];
+let carLoanApplications = [];
+let personalLoanApplications = [];
+
+let creditAccepted = [];
+let carLoanAccepted = [];
+let personalLoanAccepted = [];
+
+if (creditAccepted.length > 0){
+  //TODO: Change score to be dynamic
+  document.getElementById('creditCardP').innerHTML = "Already have a credit card!<br>Credit-Score: 750";
+  document.getElementById('creditCardBtn').innerHTML= /*html*/`
+  <a
+  type="button"
+  data-toggle="modal"
+  data-target="#redeemModal"
+  data-whatever="@mdo"
+  style="color: #fff;"
+
+  >
+  Redeem
+  </a>
+  `;  
+}
+ 
+function CreditCardApplication(){
+  const username = document.getElementById('cardName').value;
+  if (!username){
+    alert("Input Missing!");
+    return;
+  }
+  creditApplications.push(username);
+  console.log(creditApplications);
+}
+
+function CarLoanApplication(){
+  const value = document.getElementById('carLoanValue').value;
+  const dealer = document.getElementById('carDealer').value;
+  if (!value || !dealer){
+    alert("Input Missing!");
+    return;
+  }
+  carLoanApplications.push({"value": value, "dealer":dealer, "username": "user"});
+  console.log(carLoanApplications);
+}
+
+function PersonalLoanApplication(){
+  const value = document.getElementById('personalLoanValue').value;
+  const reason = document.getElementById('loanReason').value;
+  if (!value || !reason){
+    alert("Input Missing!");
+    return;
+  }
+  personalLoanApplications.push({"value": value, "reason":reason, "username": "user"});
+  console.log(personalLoanApplications);
+}
+
+
+
+const creditCardModal = /*html*/`
+<div class="modal fade" id="creditCardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Credit Card Application</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+          <div class="form-group">
+            <label for="cardName" class="col-form-label">Name on Card:</label>
+            <input type="text" class="form-control" id="cardName">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="CreditCardApplication()">Apply</button>
+      </div>
+        
+    </div>
+  </div>
+</div>
+`;
+
+const carLoanModal = /*html*/`
+<div class="modal fade" id="carLoanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Car Loan Application</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+      <div class="form-group">
+        <label for="carLoanValue" class="col-form-label">Loan Value:</label>
+        <input type="number" class="form-control" id="carLoanValue">
+      </div>
+      <div class="form-group">
+        <label for="carDealer" class="col-form-label">Car Dealer:</label>
+        <input type="text" class="form-control" id="carDealer">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="CarLoanApplication()">Apply</button>
+  </div>
+    </div>
+  </div>
+</div>
+`;
+
+const personalLoanModal = /*html*/`
+<div class="modal fade" id="personalLoanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Personal Loan Application</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+      <div class="form-group">
+        <label for="personalLoanValue" class="col-form-label">Loan Value:</label>
+        <input type="number" class="form-control" id="personalLoanValue">
+      </div>
+      <div class="form-group">
+        <label for="loanReason" class="col-form-label">Loan Reason:</label>
+        <input type="text" class="form-control" id="loanReason">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="PersonalLoanApplication()">Apply</button>
+  </div>
+    </div>
+  </div>
+</div>
+`;
+
+
 navbar.innerHTML = /*html*/`
 <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mg-auto">
         <li class="nav-item">
         <a class="nav-link" href="home.html">Home</a>
         </li>
@@ -17,16 +167,15 @@ navbar.innerHTML = /*html*/`
         <li class="nav-item">
         <a class="nav-link" href="services.html">Services</a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link" href="team.html">Team</a>
-        </li>
+
         <li class="nav-item">
         <a class="nav-link" href="complaints.html">Complaints</a>
         </li>
     </ul>
+    <span class="navbar-text">Balance: 100</span>
 </div>
-`;
-
+` + creditCardModal + carLoanModal + personalLoanModal;
+//TODO: make balance dynamic
 
 footer.innerHTML = /*html*/`
 <div class="footer_section layout_padding margin_top_90">

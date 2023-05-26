@@ -48,12 +48,13 @@
           <h1 class="banner_taital">financial <br />Service</h1>
           <p class="banner_text">
             Here at Lucky Bank financial services, we are dedicated to you and
-            all your different accounting needs. We've been around for over 20 
-            years and we've won several awards for the best online banking service. But,
-            our most important win is making you a happy, life-long customer.
+            all your different accounting needs. We've been around for over 20
+            years and we've won several awards for the best online banking
+            service. But, our most important win is making you a happy,
+            life-long customer.
           </p>
           <div class="btn_main">
-            <div class="transactions_btn"><a href="#">Transactions</a></div>
+            <div class="transactions_btn"><a href="transactions.html">Transactions</a></div>
             <div class="transfer_btn"><a href="#">Transfer</a></div>
           </div>
         </div>
@@ -86,23 +87,34 @@
     </section>
     <!--about section end -->
     <!--services section start -->
-    <section class="what_we_do_section layout_padding">
+    <section class="what_we_do_section layout_padding p-5">
       <div class="container">
         <h1 class="what_taital">Ways We can be of help</h1>
         <p class="what_text">
-          Here at Lucky Bank financial services, we offer a wide range of services
-          to help you with your financial needs.
+          Here at Lucky Bank financial services, we offer a wide range of
+          services to help you with your financial needs.
         </p>
         <div class="what_we_do_section_2">
-          <div class="row justify-content-center" >
-            <div class="col-lg-3 col-sm-6">
-              <div class="box_main">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 col-sm-6" >
+              <div class="box_main creditCardApplication" >
                 <div class="icon_1"><img src="images/icon-4.png" /></div>
                 <h3 class="accounting_text">Credit Card</h3>
-                <p class="lorem_text p-md-2">
+                <p class="lorem_text p-md-2" id="creditCardP">
                   Apply and get your credit card as soon as possible.
                 </p>
-                <div class="moretransactions_btn_1"><a href="#">Apply Now</a></div>
+                <div class="moretransactions_btn_1" id="creditCardBtn">
+                  <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#creditCardModal"
+                  data-whatever="@mdo"
+                  style="color: #fff;"
+
+                  >
+                  Apply
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -113,7 +125,18 @@
                 <p class="lorem_text p-md-2">
                   Get funding for your dream car at the best rates.
                 </p>
-                <div class="moretransactions_btn_1"><a href="#">Apply Now</a></div>
+                <div class="moretransactions_btn_1">
+                  <a
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#carLoanModal"
+                    data-whatever="@mdo"
+                    style="color: #fff;"
+
+                  >
+                    Apply
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -122,91 +145,28 @@
                 <div class="icon_1"><img src="images/icon-1.png" /></div>
                 <h3 class="accounting_text">Personal Loan</h3>
                 <p class="lorem_text p-md-2">
-                  Financial freedom starts with our Personal Loan!
+                  Financial freedom starts today with our Personal Loan!
                 </p>
-                <div class="moretransactions_btn_1"><a href="#">Apply Now </a></div>
+                <div class="moretransactions_btn_1">
+                  <a
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#personalLoanModal"
+                    data-whatever="@mdo"
+                    style="color: #fff;"
+                  >
+                    Apply
+                  </a>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
     <!--services section end -->
     <!--project section start -->
-    <section class="project_section layout_padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="project_main">
-              <h1 class="services_taital">Our projects</h1>
-              <p class="services_text">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a
-              </p>
-              <div class="moretransactions_btn"><a href="#">Read More </a></div>
-              <div class="image_6"><img src="images/img-6.png" /></div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="images_main">
-              <div class="images_left">
-                <div class="container_1">
-                  <img
-                    src="images/img-2.png"
-                    alt="Avatar"
-                    class="image"
-                    style="width: 100%"
-                  />
-                  <div class="middle">
-                    <div class="text"><img src="images/search-icon.png" /></div>
-                    <h2 class="fact_text">Established Fact</h2>
-                  </div>
-                </div>
-                <div class="container_1">
-                  <img
-                    src="images/img-3.png"
-                    alt="Avatar"
-                    class="image"
-                    style="width: 100%"
-                  />
-                  <div class="middle">
-                    <div class="text"><img src="images/search-icon.png" /></div>
-                    <h2 class="fact_text">Established Fact</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="images_right">
-                <div class="container_1">
-                  <img
-                    src="images/img-4.png"
-                    alt="Avatar"
-                    class="image"
-                    style="width: 100%"
-                  />
-                  <div class="middle">
-                    <div class="text"><img src="images/search-icon.png" /></div>
-                    <h2 class="fact_text">Established Fact</h2>
-                  </div>
-                </div>
-                <div class="container_1">
-                  <img
-                    src="images/img-5.png"
-                    alt="Avatar"
-                    class="image"
-                    style="width: 100%"
-                  />
-                  <div class="middle">
-                    <div class="text"><img src="images/search-icon.png" /></div>
-                    <h2 class="fact_text">Established Fact</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+   
     <div class="project_section_2 layout_padding">
       <div class="container">
         <div class="row">

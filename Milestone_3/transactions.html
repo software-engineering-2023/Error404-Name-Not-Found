@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- site metas -->
-    <title>Team</title>
+    <title>Transactions</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -36,7 +36,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen"
     />
-    <link rel="stylesheet" href="css/transactions.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/transactions.css" />
   </head>
   <body>
     <!--header section start -->
@@ -48,87 +52,94 @@
     <!--header section end -->
     <!-- transactions section start -->
     <section class="layout_padding">
-        <div class="wrapper rounded">
-            <nav
-            class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start"
-            >
-            <a class="navbar-brand" href="#"
-                >Transactions
-                <p class="text-muted pl-1">Welcome to your transactions</p>
-            </a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            </nav>
-            <div class="row mt-2 pt-2">
-            <div class="col-md-6" id="income">
-                <div class="d-flex justify-content-start align-items-center">
-                <p class="fa fa-long-arrow-down"></p>
-                <p class="text mx-3">Income</p>
-                <p class="text-white ml-4 money">$9,758.23</p>
-                </div>
+      <div class="wrapper rounded">
+        <nav
+          class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start"
+        >
+          <a class="navbar-brand" href="#"
+            >Transactions
+            <p class="text-muted pl-1">Welcome to your transactions</p>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <div class="row mt-2 pt-2">
+          <div class="col-md-6" id="income">
+            <div class="d-flex justify-content-start align-items-center">
+              <p class="fa fa-long-arrow-down"></p>
+              <p class="text mx-3">Income</p>
+              <p class="text-white ml-4 money">$9,758.23</p>
             </div>
-            <div class="col-md-6">
-                <div class="d-flex justify-content-md-end align-items-center">
-                <div class="fa fa-long-arrow-up"></div>
-                <div class="text mx-3">Expense</div>
-                <div class="text-white ml-4 money">$961.23</div>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex justify-content-md-end align-items-center">
+              <div class="fa fa-long-arrow-up"></div>
+              <div class="text mx-3">Expense</div>
+              <div class="text-white ml-4 money">$961.23</div>
             </div>
-            </div>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-            <ul class="nav nav-tabs w-75">
-                <li class="nav-item">
-                <a class="nav-link active" href="#history">History</a>
-                </li>
-            </ul>
-            <button class="btn btn-primary">New Transaction</button>
-            </div>
-            <div class="table-responsive mt-3">
-            <table class="table table-dark table-borderless">
-                <thead>
-                <tr>
-                    <th scope="col">Activity</th>
-                    <th scope="col">Date</th>
-                    <th scope="col" class="text-right">Amount</th>
-                </tr>
-                </thead>
-                <tbody id="transactions_table">
-                
-                </tbody>
-            </table>
-            </div>
-            <div class="d-flex justify-content-between align-items-center results">
-            <span class="pl-md-3"
-                >Showing<b class="text-white" id="page_number"> 1-7 0f 200 </b> trasactions</span
-            >
-            <div class="pt-3">
-                <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                    <a class="page-link" aria-label="Previous"  onclick="fillTablePrev()">
-                        <span aria-hidden="true">&lt;</span>
-                    </a>
-                    </li>
-                    <li class="page-item">
-                    <a class="page-link" aria-label="Next" onclick="fillTableNext()">
-                        <span aria-hidden="true">&gt;</span>
-                    </a>
-                    </li>
-                </ul>
-                </nav>
-            </div>
-            </div>
+          </div>
         </div>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <ul class="nav nav-tabs w-75">
+            <li class="nav-item">
+              <a class="nav-link active" href="#history">History</a>
+            </li>
+          </ul>
+          <button class="btn btn-primary">New Transaction</button>
+        </div>
+        <div class="table-responsive mt-3">
+          <table class="table table-dark table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Activity</th>
+                <th scope="col">Type</th>
+                <th scope="col">Date</th>
+                <th scope="col" class="text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="transactions_table"></tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-between align-items-center results">
+          <span class="pl-md-3"
+            >Showing<b class="text-white" id="page_number"> 1-7 0f 200 </b>
+            trasactions</span
+          >
+          <div class="pt-3">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    aria-label="Previous"
+                    onclick="fillTablePrev()"
+                  >
+                    <span aria-hidden="true">&lt;</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    aria-label="Next"
+                    onclick="fillTableNext()"
+                  >
+                    <span aria-hidden="true">&gt;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- transactions section end -->
     <!--footer section start -->
@@ -136,10 +147,8 @@
       <!-- This will be rendered using the footer component in component/footer.js -->
     </footer>
 
-
     <!-- Component -->
     <script src="components/constantLayout.js"></script>
     <script src="components/transactions_script.js"></script>
-
   </body>
 </html>
