@@ -75,16 +75,9 @@
         <div class="row mt-2 pt-2">
           <div class="col-md-6" id="income">
             <div class="d-flex justify-content-start align-items-center">
-              <p class="fa fa-long-arrow-down"></p>
-              <p class="text mx-3">Income</p>
-              <p class="text-white ml-4 money">$9,758.23</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="d-flex justify-content-md-end align-items-center">
-              <div class="fa fa-long-arrow-up"></div>
-              <div class="text mx-3">Expense</div>
-              <div class="text-white ml-4 money">$961.23</div>
+              <p class="fa fa-long-arrow-up"></p>
+              <p class="text mx-3">Balance</p>
+              <p class="text-white ml-4 money">$ <span class="balance" ></span> </p>
             </div>
           </div>
         </div>
@@ -148,7 +141,12 @@
     </footer>
 
     <!-- Component -->
+    <script src="components/states.js"></script>
+    <script src="components/applications.js"></script>
+    <script src="components/componentHTML.js"></script>
     <script src="components/constantLayout.js"></script>
+    <script src="components/balance.js"></script>
+
     <script src="components/transactions_script.js"></script>
   </body>
 </html>

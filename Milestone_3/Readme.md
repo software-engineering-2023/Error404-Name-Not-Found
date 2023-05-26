@@ -19,8 +19,8 @@
    1. [x] Bank account
    2. [x] Credit card
   
-6. [ ] Credit card points
-   1. [ ] Redeem points
+6. [x] Credit card points
+   1. [x] Redeem points
    2. [x] View points
 
 7. [ ] Pay credit card bill
