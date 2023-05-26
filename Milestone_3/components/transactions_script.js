@@ -230,15 +230,18 @@ function fillTable(newpage){
             "</tr>";
     }
     transactions_table.innerHTML = transactions_table_html; 
-    page = newpage % (Math.floor(transactions_response.length/entry_per_page));
-    if (page < 0) page = page + Math.floor(transactions_response.length/entry_per_page);
-
     let page_number = document.getElementById("page_number");
-    page_number.innerHTML = page * entry_per_page + " - " + ((page+1) * entry_per_page) + " of " + transactions_response.length;
+    const endpage = Math.min((page+1 )* entry_per_page, transactions_response.length);
+    page_number.innerHTML = page * entry_per_page + " - " + (endpage) + " of " + transactions_response.length;
+    
+    page = newpage % (Math.ceil(transactions_response.length/entry_per_page));
+    if (page < 0) page = page + Math.ceil(transactions_response.length/entry_per_page);
+
 }
 
 function fillTableNext(){
     fillTable(page+1);
+    console.log(page);
 }
 
 function fillTablePrev(){
