@@ -1,19 +1,19 @@
-const navbar = document.querySelector('nav');
-const footer = document.querySelector('footer');
+const navbar = document.querySelector("nav");
+const footer = document.querySelector("footer");
 
-
-
-navbar.innerHTML = navbarComponent + creditCardModal + carLoanModal + personalLoanModal;
+navbar.innerHTML =
+  navbarComponent +
+  creditCardModal +
+  carLoanModal +
+  personalLoanModal +
+  PaycreditCardModal;
 footer.innerHTML = footerComponent;
 
-
-
-
-
-if (creditAccepted.length > 0){
+if (creditAccepted.length > 0) {
   //TODO: Change score to be dynamic
-  document.getElementById('creditCardP').innerHTML = "Already have a credit card!<br>Credit-Score:<span class='creditScore'></span>";
-  document.getElementById('creditCardBtn').innerHTML= /*html*/`
+  document.getElementById("creditCardP").innerHTML =
+    "Already have a credit card!<br>Credit-Score:<span class='creditScore'></span>";
+  document.getElementById("creditCardBtn").innerHTML = /*html*/ `
   <a
   type="button"
   data-toggle="modal"
@@ -24,7 +24,7 @@ if (creditAccepted.length > 0){
   >
   Redeem
   </a>
-  `;  
+  `;
 }
 
 setBalance();

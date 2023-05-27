@@ -1,4 +1,4 @@
-const navbarComponent = /*html*/`
+const navbarComponent = /*html*/ `
 <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,8 +21,8 @@ const navbarComponent = /*html*/`
     </ul>
     <span class="navbar-text">Balance: <span class="balance"></span></span>
 </div>
-`
-const footerComponent = /*html*/`
+`;
+const footerComponent = /*html*/ `
 <div class="footer_section layout_padding margin_top_90">
 <div class="container">
   <div class="row">
@@ -74,7 +74,7 @@ const footerComponent = /*html*/`
 </div>
 `;
 
-const creditCardModal = /*html*/`
+const creditCardModal = /*html*/ `
 <div class="modal fade" id="creditCardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -102,7 +102,7 @@ const creditCardModal = /*html*/`
 </div>
 `;
 
-const carLoanModal = /*html*/`
+const carLoanModal = /*html*/ `
 <div class="modal fade" id="carLoanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -133,7 +133,7 @@ const carLoanModal = /*html*/`
 </div>
 `;
 
-const personalLoanModal = /*html*/`
+const personalLoanModal = /*html*/ `
 <div class="modal fade" id="personalLoanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -164,3 +164,31 @@ const personalLoanModal = /*html*/`
 </div>
 `;
 
+const PaycreditCardModal = /*html*/ `
+<div class="modal fade" id="PaycreditCardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Credit Card Application</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+          <div class="form-group">
+            <label for="PayCreditAmount" class="col-form-label">Amount to be Paid:</label>
+            <input type="number" class="form-control" id="PayCreditAmount">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="PayFullCredit()">Pay All Fees</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="PayPartialCredit()">Pay Selected Amount</button>
+      </div>
+        
+    </div>
+  </div>
+</div>
+`;
