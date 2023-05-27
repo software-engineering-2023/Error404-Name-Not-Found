@@ -60,4 +60,4 @@
     4. [ ] phone
 12. [ ] Submit Issue
 
-13. [ ] Report Credit card theft or loss and apply for replacement
+13. [x] Report Credit card theft or loss and apply for replacement
