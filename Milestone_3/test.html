@@ -25,8 +25,8 @@
     </button>
 
     <!-- Modal -->
-    <div class="modal" id="transferModal">
-      <div class="modal-dialog">
+    <div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <!-- Modal header -->
           <div class="modal-header">
@@ -49,9 +49,10 @@
             </div>
 
             <!-- Requirements -->
-            <div id="requirements" style="display: none">
+            <div id="requirements">
               <h5>Requirements:</h5>
-              <div id="internalTransfer" style="display: none">
+
+              <div id="internalTransfer">
                 <p>Internal Transfer Requirements:</p>
                 <div class="form-group">
                   <label for="UsernameReciever">Username of Reciever:</label>
@@ -61,11 +62,9 @@
                     id="UsernameReciever"
                   />
                 </div>
-                <!-- <div class="form-group">
-                              <label for="Amount">Amount:</label>
-                              <input type="text" class="form-control" id="Amount" />
-                            </div> -->
               </div>
+
+
               <div id="domesticTransfer" style="display: none">
                 <p>Domestic Transfer Requirements:</p>
                 <div class="form-group">
@@ -81,6 +80,8 @@
                   <input type="text" class="form-control" id="AccountNumber" />
                 </div>
               </div>
+
+
               <div id="internationalTransfer" style="display: none">
                 <p>International Transfer Requirements:</p>
                 <div class="form-group">
@@ -114,7 +115,9 @@
                   />
                 </div>
               </div>
+
             </div>
+
             <div class="form-group">
               <label for="TransferAmount">Amount:</label>
               <input type="number" class="form-control" id="TransferAmount" />
@@ -142,7 +145,8 @@
         </div>
       </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
       // Show requirements based on selected transfer option
       $(document).ready(function () {
@@ -164,7 +168,6 @@
       });
     </script>
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   </body>
 </html>

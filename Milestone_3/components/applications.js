@@ -53,6 +53,7 @@ function PayPartialCredit() {
   creditFees -= amount;
   setBalance();
 }
+
 function Transfer() {
   const amount = document.getElementById("TransferAmount").value;
   if (!amount) {
@@ -65,5 +66,13 @@ function Transfer() {
   }
   balance -= amount;
   setBalance();
+//TODO
+  // transactions_response.push({
+  //   title: "Transfer",
+  //   date: new Date().toISOString().slice(0, 10),
+  //   amount: -amount,
+  //   bankOrCredit: "Bank",
+  //   type: "briefcase",
+  // });
   alert("Transfer Done!");
 }

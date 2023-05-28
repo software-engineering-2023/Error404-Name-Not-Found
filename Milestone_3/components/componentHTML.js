@@ -1,5 +1,5 @@
 const navbarComponent = /*html*/ `
-<div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+<div class="logo"><a href="index.html"><img src="images/logo.png" style="width: 100px;"></a></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -195,8 +195,6 @@ const PaycreditCardModal = /*html*/ `
 
 const LostCard = /*html*/ ` 
 <!-- The Modal -->
-<div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel" aria-hidden="true">
-
 <div class="modal fade" id="cardStatusModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -207,55 +205,57 @@ const LostCard = /*html*/ `
           &times;
         </button>
       </div>
-<!-- Modal Body -->
-<div class="modal-body">
-  <form>
-    <div class="form-group">
-      <label for="cardStatus">Select Card Status:</label><br />
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input
-            type="radio"
-            class="form-check-input"
-            name="cardStatus"
-            value="lost"
-          />
-          Lost
-        </label>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="cardStatus">Select Card Status:</label><br />
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="cardStatus"
+                  value="lost"
+                />
+                Lost
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="cardStatus"
+                  value="stolen"
+                />
+                Stolen
+              </label>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input
-            type="radio"
-            class="form-check-input"
-            name="cardStatus"
-            value="stolen"
-          />
-          Stolen
-        </label>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Save
+        </button>
       </div>
     </div>
-  </form>
-</div>
-
-<!-- Modal Footer -->
-<div class="modal-footer">
-  <button type="button" class="btn btn-primary" data-dismiss="modal">
-    Save
-  </button>
-</div>
-</div> `;
+  </div>
+</div>`;
 
 const transferModal = /*html*/ `
 <!-- Modal -->
-<div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel" aria-hidden="true">
+<div class="modal fade" id="transferModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal header -->
       <div class="modal-header">
-        <h4 class="modal-title" id="transferModalLabel">Transfer Options</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h4 class="modal-title">Transfer Options</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
         </button>
       </div>
 
@@ -272,12 +272,13 @@ const transferModal = /*html*/ `
         </div>
 
         <!-- Requirements -->
-        <div id="requirements" style="display: none">
+        <div id="requirements">
           <h5>Requirements:</h5>
-          <div id="internalTransfer" style="display: none">
+
+          <div id="internalTransfer">
             <p>Internal Transfer Requirements:</p>
             <div class="form-group">
-              <label for="UsernameReciever">Username of Receiver:</label>
+              <label for="UsernameReciever">Username of Reciever:</label>
               <input
                 type="text"
                 class="form-control"
@@ -285,6 +286,8 @@ const transferModal = /*html*/ `
               />
             </div>
           </div>
+
+
           <div id="domesticTransfer" style="display: none">
             <p>Domestic Transfer Requirements:</p>
             <div class="form-group">
@@ -300,6 +303,8 @@ const transferModal = /*html*/ `
               <input type="text" class="form-control" id="AccountNumber" />
             </div>
           </div>
+
+
           <div id="internationalTransfer" style="display: none">
             <p>International Transfer Requirements:</p>
             <div class="form-group">
@@ -333,7 +338,9 @@ const transferModal = /*html*/ `
               />
             </div>
           </div>
+
         </div>
+
         <div class="form-group">
           <label for="TransferAmount">Amount:</label>
           <input type="number" class="form-control" id="TransferAmount" />
@@ -360,19 +367,16 @@ const transferModal = /*html*/ `
       </div>
     </div>
   </div>
-</div>
+</div>`;
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- Bootstrap JS -->
+const scripts = /*html*/ `
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 <script>
   // Show requirements based on selected transfer option
-  $(document).ready(function() {
-    $("#transferOption").change(function() {
+  $(document).ready(function () {
+    $("#transferOption").change(function () {
       var selectedOption = $(this).val();
       $("#requirements").show();
       $("#internalTransfer").hide();
