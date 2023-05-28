@@ -53,3 +53,17 @@ function PayPartialCredit() {
   creditFees -= amount;
   setBalance();
 }
+function Transfer() {
+  const amount = document.getElementById("TransferAmount").value;
+  if (!amount) {
+    alert("No Transfer amount entered!");
+    return;
+  }
+  if (balance < amount) {
+    alert("Not enough balance!");
+    return;
+  }
+  balance -= amount;
+  setBalance();
+  alert("Transfer Done!");
+}

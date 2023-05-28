@@ -195,6 +195,8 @@ const PaycreditCardModal = /*html*/ `
 
 const LostCard = /*html*/ ` 
 <!-- The Modal -->
+<div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel" aria-hidden="true">
+
 <div class="modal fade" id="cardStatusModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -244,31 +246,146 @@ const LostCard = /*html*/ `
 </div>
 </div> `;
 
-// const Transfers = /*html*/ `
-// <div class="modal fade" id="PaycreditCardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-//   <div class="modal-dialog modal-dialog-centered" role="document">
-//     <div class="modal-content">
-//       <div class="modal-header">
-//         <h5 class="modal-title" id="exampleModalLabel">Credit Card Application</h5>
-//         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-//           <span aria-hidden="true">&times;</span>
-//         </button>
-//       </div>
-//       <div class="modal-body">
-//       <form>
-//           <div class="form-group">
-//             <label for="PayCreditAmount" class="col-form-label">Amount to be Paid:</label>
-//             <input type="number" class="form-control" id="PayCreditAmount">
-//           </div>
-//         </form>
-//       </div>
-//       <div class="modal-footer">
-//         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-//         <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="PayFullCredit()">Pay All Fees</button>
-//         <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="PayPartialCredit()">Pay Selected Amount</button>
-//       </div>
+const transferModal = /*html*/ `
+<!-- Modal -->
+<div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal header -->
+      <div class="modal-header">
+        <h4 class="modal-title" id="transferModalLabel">Transfer Options</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
-//     </div>
-//   </div>
-// </div>
-// `;
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!-- Transfer options -->
+        <div class="form-group">
+          <label for="transferOption">Select Transfer Option:</label>
+          <select class="form-control" id="transferOption">
+            <option value="internal">Internal Transfer</option>
+            <option value="domestic">Domestic Transfer</option>
+            <option value="international">International Transfer</option>
+          </select>
+        </div>
+
+        <!-- Requirements -->
+        <div id="requirements" style="display: none">
+          <h5>Requirements:</h5>
+          <div id="internalTransfer" style="display: none">
+            <p>Internal Transfer Requirements:</p>
+            <div class="form-group">
+              <label for="UsernameReciever">Username of Receiver:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="UsernameReciever"
+              />
+            </div>
+          </div>
+          <div id="domesticTransfer" style="display: none">
+            <p>Domestic Transfer Requirements:</p>
+            <div class="form-group">
+              <label for="BankName">Bank Name:</label>
+              <input type="text" class="form-control" id="BankName" />
+            </div>
+            <div class="form-group">
+              <label for="BankBranch">Bank Branch:</label>
+              <input type="text" class="form-control" id="BankBranch" />
+            </div>
+            <div class="form-group">
+              <label for="AccountNumber">Account Number:</label>
+              <input type="text" class="form-control" id="AccountNumber" />
+            </div>
+          </div>
+          <div id="internationalTransfer" style="display: none">
+            <p>International Transfer Requirements:</p>
+            <div class="form-group">
+              <label for="beneficiaryName">Beneficiary's Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="beneficiaryName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="beneficiaryAccNo"
+                >Beneficiary's Bank Account Number:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="beneficiaryAccNo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="SwiftCode">Beneficiary's Bank Swift Code:</label>
+              <input type="text" class="form-control" id="SwiftCode" />
+            </div>
+            <div class="form-group">
+              <label for="PurposeofPayment">Purpose of Payment:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="PurposeofPayment"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="TransferAmount">Amount:</label>
+          <input type="number" class="form-control" id="TransferAmount" />
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          onclick="Transfer()"
+        >
+          Transfer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Show requirements based on selected transfer option
+  $(document).ready(function() {
+    $("#transferOption").change(function() {
+      var selectedOption = $(this).val();
+      $("#requirements").show();
+      $("#internalTransfer").hide();
+      $("#domesticTransfer").hide();
+      $("#internationalTransfer").hide();
+
+      if (selectedOption === "internal") {
+        $("#internalTransfer").show();
+      } else if (selectedOption === "domestic") {
+        $("#domesticTransfer").show();
+      } else if (selectedOption === "international") {
+        $("#internationalTransfer").show();
+      }
+    });
+  });
+</script>`;

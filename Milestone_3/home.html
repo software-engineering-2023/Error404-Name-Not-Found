@@ -28,6 +28,11 @@
       rel="stylesheet"
       href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <!-- owl stylesheets -->
     <link rel="stylesheet" href="css/owl.carousel.min.css" />
     <link rel="stylesheet" href="css/owl.theme.default.min.css" />
@@ -57,7 +62,19 @@
             <div class="transactions_btn">
               <a href="transactions.html">Transactions</a>
             </div>
-            <div class="transfer_btn"><a href="#">Transfer</a></div>
+            <div class="transfer_btn">
+              <a type="button" data-toggle="modal" data-target="#transferModal">
+                Transfer
+              </a>
+            </div>
+            <!--  <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#transferModal"
+    >
+      Open Transfer Modal
+    </button> -->
           </div>
         </div>
       </div>

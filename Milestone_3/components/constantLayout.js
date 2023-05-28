@@ -7,7 +7,8 @@ navbar.innerHTML =
   carLoanModal +
   personalLoanModal +
   PaycreditCardModal +
-  LostCard;
+  LostCard +
+  transferModal;
 footer.innerHTML = footerComponent;
 
 if (creditAccepted.length > 0) {
