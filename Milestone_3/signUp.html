@@ -36,7 +36,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
   </head>
   <body>
     <div class="card-body p-md-5">
@@ -46,9 +49,17 @@
 
           <form>
             <div class="d-flex flex-row align-items-center mb-4">
-              <i class="bi bi-person" style="font-size: 25px;height: 75px; width: 35px;"></i>
+              <i
+                class="bi bi-person"
+                style="font-size: 25px; height: 75px; width: 35px"
+              ></i>
               <div class="form-outline flex-fill mb-0">
-                <input type="text" id="formName" class="form-control" onchange="verifyInputs()" />
+                <input
+                  type="text"
+                  id="formName"
+                  class="form-control"
+                  onchange="verifyInputs()"
+                />
                 <label
                   class="form-label"
                   for="formName"
@@ -63,9 +74,11 @@
               </div>
             </div>
 
-
             <div class="d-flex flex-row align-items-center mb-4">
-              <i class="bi bi-person" style="font-size: 25px;height: 75px; width: 35px;"></i>
+              <i
+                class="bi bi-person"
+                style="font-size: 25px; height: 75px; width: 35px"
+              ></i>
               <div class="form-outline flex-fill mb-0">
                 <input
                   type="input"
@@ -87,11 +100,23 @@
               </div>
             </div>
 
-
             <div class="d-flex flex-row align-items-center mb-4">
-                <i class="bi bi-envelope-fill" style="font-size: 25px; display: block;height: 75px; width: 35px;"></i>
+              <i
+                class="bi bi-envelope-fill"
+                style="
+                  font-size: 25px;
+                  display: block;
+                  height: 75px;
+                  width: 35px;
+                "
+              ></i>
               <div class="form-outline flex-fill mb-0">
-                <input type="email" id="formEmail" class="form-control" onchange="verifyInputs()"/>
+                <input
+                  type="email"
+                  id="formEmail"
+                  class="form-control"
+                  onchange="verifyInputs()"
+                />
                 <label
                   class="form-label"
                   for="formEmail"
@@ -107,7 +132,15 @@
             </div>
 
             <div class="d-flex flex-row align-items-center mb-4">
-                <i class="bi bi-lock-fill" style="font-size: 25px; display: block;height: 75px; width: 35px;"></i> 
+              <i
+                class="bi bi-lock-fill"
+                style="
+                  font-size: 25px;
+                  display: block;
+                  height: 75px;
+                  width: 35px;
+                "
+              ></i>
               <div class="form-outline flex-fill mb-0">
                 <input
                   type="password"
@@ -152,7 +185,13 @@
             </div> -->
 
             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-              <button type="button" class="btn btn-primary btn-lg" id="registerBtn" disabled onclick="Register()">
+              <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                id="registerBtn"
+                disabled
+                onclick="Register()"
+              >
                 Register
               </button>
             </div>
@@ -174,41 +213,48 @@
     </div>
 
     <script>
-        function verifyInputs(){
-            var valid = true;
-            var name = document.getElementById("formName").value;
+      function verifyInputs() {
+        var valid = true;
+        var name = document.getElementById("formName").value;
 
-            var username = document.getElementById("formUsername").value;
-                
-            var email = document.getElementById("formEmail").value;
-            var password = document.getElementById("formPassword").value;
+        var username = document.getElementById("formUsername").value;
 
-            if (name == "" || username == "" || email == "" || password == "") {
-                valid = false;
-            }
+        var email = document.getElementById("formEmail").value;
+        var password = document.getElementById("formPassword").value;
 
-            if (valid){
-                document.getElementById("registerBtn").disabled = false;
-            }
-            else{
-                document.getElementById("registerBtn").disabled = true;
-            }
+        if (name == "" || username == "" || email == "" || password == "") {
+          valid = false;
         }
+
+        if (valid) {
+          document.getElementById("registerBtn").disabled = false;
+        } else {
+          document.getElementById("registerBtn").disabled = true;
+        }
+      }
     </script>
 
     <script>
-        function Register() {
-            var name = document.getElementById("formName").value;
-            var username = document.getElementById("formUsername").value;
-            var email = document.getElementById("formEmail").value;
-            var password = document.getElementById("formPassword").value;
-            if (username == "admin" || username == "banker" || username == "user") {
-                alert("username already exists!");
-                return;
-            }
-            alert("Register successful!! \n\nName: " + name + "\nUsername: " + username + "\nEmail: " + email + "\nPassword: Hidden ;)");
-            
+      function Register() {
+        var name = document.getElementById("formName").value;
+        var username = document.getElementById("formUsername").value;
+        var email = document.getElementById("formEmail").value;
+        var password = document.getElementById("formPassword").value;
+        if (username == "admin" || username == "banker" || username == "user") {
+          alert("username already exists!");
+          return;
         }
+        alert(
+          "Register successful!! \n\nName: " +
+            name +
+            "\nUsername: " +
+            username +
+            "\nEmail: " +
+            email +
+            "\nPassword: Hidden ;)"
+        );
+        window.location.href = "signin.html";
+      }
     </script>
   </body>
 </html>

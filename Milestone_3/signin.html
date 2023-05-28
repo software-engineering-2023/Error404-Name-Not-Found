@@ -36,7 +36,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
   </head>
   <body>
     <div class="card-body p-md-5">
@@ -46,7 +49,10 @@
 
           <form>
             <div class="d-flex flex-row align-items-center mb-4">
-              <i class="bi bi-person" style="font-size: 25px;height: 75px; width: 35px;"></i>
+              <i
+                class="bi bi-person"
+                style="font-size: 25px; height: 75px; width: 35px"
+              ></i>
               <div class="form-outline flex-fill mb-0">
                 <input
                   type="input"
@@ -68,9 +74,16 @@
               </div>
             </div>
 
-
             <div class="d-flex flex-row align-items-center mb-4">
-                <i class="bi bi-lock-fill" style="font-size: 25px; display: block;height: 75px; width: 35px;"></i> 
+              <i
+                class="bi bi-lock-fill"
+                style="
+                  font-size: 25px;
+                  display: block;
+                  height: 75px;
+                  width: 35px;
+                "
+              ></i>
               <div class="form-outline flex-fill mb-0">
                 <input
                   type="password"
@@ -93,7 +106,13 @@
             </div>
 
             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-              <button type="button" class="btn btn-primary btn-lg" id="loginBtn" disabled onclick="login()">
+              <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                id="loginBtn"
+                disabled
+                onclick="login()"
+              >
                 Login
               </button>
             </div>
@@ -115,36 +134,37 @@
     </div>
 
     <script>
-        function verifyInputs(){
-            var valid = true;
-            var username = document.getElementById("formUsername").value;
-            var password = document.getElementById("formPassword").value;
+      function verifyInputs() {
+        var valid = true;
+        var username = document.getElementById("formUsername").value;
+        var password = document.getElementById("formPassword").value;
 
-            if (username == "" || password == "") {
-                valid = false;
-            }
-
-            if (valid){
-                document.getElementById("loginBtn").disabled = false;
-            }
-            else{
-                document.getElementById("loginBtn").disabled = true;
-            }
+        if (username == "" || password == "") {
+          valid = false;
         }
+
+        if (valid) {
+          document.getElementById("loginBtn").disabled = false;
+        } else {
+          document.getElementById("loginBtn").disabled = true;
+        }
+      }
     </script>
 
     <script>
-        function login() {
-            var username = document.getElementById("formUsername").value;
-            var password = document.getElementById("formPassword").value;
+      function login() {
+        var username = document.getElementById("formUsername").value;
+        var password = document.getElementById("formPassword").value;
 
-            if ( (username == "admin" && password == "admin") ||
-                 (username == "banker" && password == "banker") ||
-                 (username == "user" && password == "user") ) {
-                
-                window.location.href = "index.html";
-            }  
+        if (username == "user" && password == "user") {
+          window.location.href = "home.html";
+        } else if (
+          (username == "admin" && password == "admin") ||
+          (username == "banker" && password == "banker")
+        ) {
+          window.location.href = "home.html"; //will be changed after creation of home admin and home banker
         }
+      }
     </script>
   </body>
 </html>
