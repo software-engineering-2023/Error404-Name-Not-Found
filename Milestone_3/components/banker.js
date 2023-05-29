@@ -113,7 +113,7 @@ function fillUserAccountTable(name){
     if (table_header) {
         table_header.innerHTML = name + "'s Transactions  <img src='https://img.icons8.com/?size=512&id=P1YG1sk94HiB&format=png' width=20px>";
     }
-
+    let transactions_table_html = "";
 
     for (let i = 0; i < transactions_response.length; i++) {
         let type = transactions_response[i]["type"];
