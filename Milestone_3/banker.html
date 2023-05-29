@@ -39,9 +39,26 @@
     />
 
     <link rel="stylesheet" href="css/transactions.css" />
-
+    <style>
+      #myBtn {
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: #1b5a8d; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+    </style>
   </head>
   <body>
+    <a href="signin.html" id="myBtn" title="Go to top">Log out</a>
+
     <!--header section start -->
     <section class="header_section">
       <nav
@@ -55,6 +72,32 @@
         </div>
       </nav>
     </section>
+            <!-- Modal -->
+            <div class="modal fade" id="accountCreationModal" tabindex="-1" role="dialog" aria-labelledby="accountCreationModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="accountCreationModalLabel">Account Creation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+            
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                    <ul id="userList" class="list-group">
+                      <!-- Random users will be dynamically inserted here -->
+                    </ul>
+                  </div>
+            
+                  <!-- Modal Footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
     <!-- Modal -->
     <div class="modal fade remove-scroll-bar" id="personalLoan" tabindex="-1" role="dialog" aria-labelledby="personalLoanModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -73,9 +116,9 @@
               <table class="table table-dark table-borderless">
                 <thead>
                   <tr>
-                    <th scope="col">Username</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Amount</th>
+                    <th scope="col" >Username</th>
+                    <th scope="col" id="typeHeader">Type</th>
+                    <th scope="col" id="amountHeader">Amount</th>
                     <th scope="col" class="text-right">Accept or Reject</th>
                   </tr>
                 </thead>
@@ -155,8 +198,62 @@
           </div>
         </div>
       </div>
+  
     </section>
     <!--about section end -->
+    <section class="services_section layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="services_taital">New Accounts:</h1>
+            <p class="services_text">
+              Review and accept or reject applications for new accounts.
+            <div class="btn_main">
+              <div class="moretransactions_btn">
+                <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#accountCreationModal"
+                  data-whatever="@mdo"
+                  style="color: #000000"
+                  onclick="fillLoanTable()"
+                >
+                  View Accounts
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </section>
+
+    <section class="services_section layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="services_taital">Send Notifications:</h1>
+            <p class="services_text">
+              Review and accept or reject applications for loans and credit cards.
+            <div class="btn_main">
+              <div class="moretransactions_btn">
+                <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#personalLoan"
+                  data-whatever="@mdo"
+                  style="color: #000000"
+                  onclick="fillLoanTable()"
+                >
+                  Notify Customers
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </section>
    
     <!--footer section start -->
     <footer>
@@ -178,6 +275,74 @@
     <!-- Component -->
     <script src="components/states.js"></script>
     <script src="components/banker.js"></script>
+    <script>
+      // Sample array of random users
+      var randomUsers = [
+        "John Doe",
+        "Jane Smith",
+        "David Johnson",
+        "Sarah Wilson",
+        "Michael Brown"
+      ];
+    
+      // Function to display the list of random users in the modal
+      function displayUserList() {
+        var userList = document.getElementById("userList");
+    
+        // Clear any existing user list
+        userList.innerHTML = "";
+    
+        // Iterate over the randomUsers array and generate HTML for each user
+        randomUsers.forEach(function(user) {
+          // Create list item element
+          var listItem = document.createElement("li");
+          listItem.classList.add("list-group-item");
+          listItem.textContent = user;
+    
+          // Create accept button
+          var acceptBtn = document.createElement("button");
+          acceptBtn.classList.add("btn", "btn-success", "btn-sm", "float-right", "mr-2");
+          acceptBtn.textContent = "Accept";
+          acceptBtn.addEventListener("click", function() {
+            acceptUser(user);
+            listItem.remove();
+          });
+    
+          // Create reject button
+          var rejectBtn = document.createElement("button");
+          rejectBtn.classList.add("btn", "btn-danger", "btn-sm", "float-right");
+          rejectBtn.textContent = "Reject";
+          rejectBtn.addEventListener("click", function() {
+            rejectUser(user);
+            listItem.remove();
+          });
+    
+          // Append buttons to the list item
+          listItem.appendChild(rejectBtn);
+          listItem.appendChild(acceptBtn);
+    
+          // Append list item to the user list
+          userList.appendChild(listItem);
+        });
+      }
+    
+      // Function to accept a user
+      function acceptUser(user) {
+        // Handle the logic for accepting the user
+        console.log("Accepted user:", user);
+      }
+    
+      // Function to reject a user
+      function rejectUser(user) {
+        // Handle the logic for rejecting the user
+        console.log("Rejected user:", user);
+      }
+    
+      // Attach event listener to the modal show event
+      $('#accountCreationModal').on('show.bs.modal', function () {
+        displayUserList();
+      });
+    </script>
 
   </body>
 </html>

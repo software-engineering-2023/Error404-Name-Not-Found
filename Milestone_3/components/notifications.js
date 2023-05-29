@@ -8,7 +8,7 @@ function initializeNotifications() {
     }
 }
 
-function notifyMe(title, message) {
+function notifyMe(title, message, url) {
 
     var notification = new Notification(title, {
         icon: "images/logo.png",
@@ -16,13 +16,15 @@ function notifyMe(title, message) {
     });
 
     notification.onclick = function() {
-        window.open("http://127.0.0.1:5500/Milestone_3/home.html");
+        window.open(url);
     };
 }
 initializeNotifications();
 
-// setTimeout(function() {
-//     notifyMe("issue cleared", "issue has been cleared");
-//     clearTimeout();
-// }, 5000);
 
+notificationsList.forEach(element => {
+    setTimeout(function() {
+        notifyMe(element.title, element.message);
+        clearTimeout();
+    }, element.delay);
+});

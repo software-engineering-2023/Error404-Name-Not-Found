@@ -1,5 +1,5 @@
 const navbarComponent = /*html*/ `
-<div class="logo"><a href="index.html"><img src="images/logo.png" style="width: 100px;"></a></div>
+<div class="logo"><a href="home.html"><img src="images/logo.png" style="width: 100px;"></a></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,18 +8,12 @@ const navbarComponent = /*html*/ `
         <li class="nav-item">
         <a class="nav-link" href="home.html">Home</a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="services.html">Services</a>
-        </li>
 
         <li class="nav-item">
         <a class="nav-link" href="complaints.html">Complaints</a>
         </li>
     </ul>
-    <span class="navbar-text">Balance: <span class="balance"></span></span>
+    <span class="navbar-text ml-auto">Balance: <span class="balance"></span></span>
 </div>
 `;
 const footerComponent = /*html*/ `
@@ -28,32 +22,30 @@ const footerComponent = /*html*/ `
   <div class="row">
     <div class="col-lg-3 col-sm-6">
       <h4 class="about_text">About Financial</h4>
-      <div class="location_text"><img src="images/map-icon.png"><span class="padding_left_15">Locations</span></div>
+      <div class="location_text"><img src="images/map-icon.png"><span class="padding_left_15">GUC - Engineering</span></div>
       <div class="location_text"><img src="images/call-icon.png"><span class="padding_left_15">+01 9876543210</span></div>
-      <div class="location_text"><img src="images/mail-icon.png"><span class="padding_left_15">demo@gmail.com</span></div>
+      <div class="location_text"><img src="images/mail-icon.png"><span class="padding_left_15">guc_best_team@gmail.com</span></div>
     </div>
     <div class="col-lg-3 col-sm-6">
-      <h4 class="about_text">About Financial</h4>
-      <p class="dolor_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+      <h4 class="about_text">About Us</h4>
+      <p class="dolor_text">We are inspired and motivated young engineers wishing to change the world!</p>
     </div>
     <div class="col-lg-3 col-sm-6">
       <h4 class="about_text">Instagram</h4>
       <div class="footer_images">
         <div class="footer_images_left">
-          <div class="image_12"><img src="images/img-12.png"></div>
-          <div class="image_12"><img src="images/img-12.png"></div>
-          <div class="image_12"><img src="images/img-12.png"></div>
+          <div class="image_12"><img src="images/Malak.jpg" style="width: 65px; aspect-ratio:1; object-fit: cover"> </div>
+          <div class="image_12"><img src="images/Habiba.jpg" style="width: 65px; aspect-ratio:1; object-fit: cover"></div>
+          <div class="image_12"><img src="images/Marawan.jpg" style="width: 65px; aspect-ratio:1; object-fit: cover"></div>
         </div>
         <div class="footer_images_right">
-          <div class="image_12"><img src="images/img-12.png"></div>
-          <div class="image_12"><img src="images/img-12.png"></div>
-          <div class="image_12"><img src="images/img-12.png"></div>
+          <div class="image_12"><img src="images/Maryam.jpg" style="width: 65px; aspect-ratio:1; object-fit: cover"></div>
+          <div class="image_12"><img src="images/ziad.jpg" style="width: 65px; aspect-ratio:1; object-fit: cover"></div>
         </div>
       </div>
     </div>
     <div class="col-lg-3 col-sm-6">
-      <h4 class="about_text">Newsletter</h4>
-      <input type="text" class="mail_text" placeholder="Enter your email" name="Enter your email">
+      <h4 class="about_text">Social Media</h4>
       <div class="subscribe_bt"><a href="#">Subscribe</a></div>
       <div class="footer_social_icon">
         <ul>
@@ -67,7 +59,7 @@ const footerComponent = /*html*/ `
   </div>
   <!-- copyright section start -->
   <div class="copyright_section">
-    <div class="copyright_text">&copy Copyright 2019 All Right Reserved By <a href="https://html.design">Free html  Templates</a></div>
+    <div class="copyright_text">&copy Copyright 2023 All Right Reserved By <a href="https://html.design">Free html  Templates</a></div>
   </div>
   <!-- copyright section end -->
 </div>
@@ -216,6 +208,7 @@ const LostCard = /*html*/ `
                   type="radio"
                   class="form-check-input"
                   name="cardStatus"
+                  id="cardStatusLost"
                   value="lost"
                 />
                 Lost
@@ -227,6 +220,7 @@ const LostCard = /*html*/ `
                   type="radio"
                   class="form-check-input"
                   name="cardStatus"
+                  id="cardStatusStolen"
                   value="stolen"
                 />
                 Stolen
@@ -238,8 +232,8 @@ const LostCard = /*html*/ `
 
       <!-- Modal Footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">
-          Save
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="lostCreditHandler()">
+          Report
         </button>
       </div>
     </div>
@@ -494,3 +488,129 @@ aria-hidden="true"
 </div>
 </div>
 `;
+
+const remindersModal = /*html*/ `
+<div
+class="modal fade"
+id="remindersModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="paymentModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h5 class="modal-title" id="paymentModalLabel">Set Reminder</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label>Select Reminders:</label><br />
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gasReminder"
+              onchange="toggleAmountInput('gasReminderAmount', this.checked)"
+            />
+            <label class="form-check-label" for="gasReminderAmount"> Gas </label>
+            <input
+              type="number"
+              class="form-control"
+              id="gasReminderAmount"
+              placeholder="Enter time in seconds"
+              disabled
+            />
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="electricityReminder"
+              onchange="toggleAmountInput('electricityReminderAmount', this.checked)"
+            />
+            <label class="form-check-label" for="electricityReminderAmount">
+              Electricity
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="electricityReminderAmount"
+              placeholder="Enter time in seconds"
+              disabled
+            />
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="waterReminder"
+              onchange="toggleAmountInput('waterReminderAmount', this.checked)"
+            />
+            <label class="form-check-label" for="waterReminderAmount">
+              Water
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="waterReminderAmount"
+              placeholder="Enter time in seconds"
+              disabled
+            />
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="phoneReminder"
+              onchange="toggleAmountInput('phoneReminderAmount', this.checked)"
+            />
+            <label class="form-check-label" for="phoneReminderAmount">
+              Phone
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="phoneReminderAmount"
+              placeholder="Enter time in seconds"
+              disabled
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+      >
+        Close
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        onclick="setReminders()"
+      >
+        Set Reminders
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+`;
+

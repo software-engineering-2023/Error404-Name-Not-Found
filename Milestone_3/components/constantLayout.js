@@ -9,7 +9,8 @@ navbar.innerHTML =
   PaycreditCardModal +
   LostCard +
   transferModal +
-  paymentModal;
+  paymentModal + 
+  remindersModal;
 footer.innerHTML = footerComponent;
 
 if (creditAccepted.length > 0) {

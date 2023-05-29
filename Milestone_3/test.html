@@ -9,165 +9,113 @@
     <style>
       /* Adjust modal position */
       .modal-dialog {
-        margin-top: 20%;
+        margin-top: 10%;
       }
     </style>
   </head>
   <body>
-    <!-- Button to open the modal -->
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#transferModal"
-    >
-      Open Transfer Modal
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accountCreationModal">
+      Open Account Creation Modal
     </button>
-
+    
     <!-- Modal -->
-    <div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="accountCreationModal" tabindex="-1" role="dialog" aria-labelledby="accountCreationModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <!-- Modal header -->
+          <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Transfer Options</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
+            <h5 class="modal-title" id="accountCreationModalLabel">Account Creation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
-
-          <!-- Modal body -->
+    
+          <!-- Modal Body -->
           <div class="modal-body">
-            <!-- Transfer options -->
-            <div class="form-group">
-              <label for="transferOption">Select Transfer Option:</label>
-              <select class="form-control" id="transferOption">
-                <option value="internal">Internal Transfer</option>
-                <option value="domestic">Domestic Transfer</option>
-                <option value="international">International Transfer</option>
-              </select>
-            </div>
-
-            <!-- Requirements -->
-            <div id="requirements">
-              <h5>Requirements:</h5>
-
-              <div id="internalTransfer">
-                <p>Internal Transfer Requirements:</p>
-                <div class="form-group">
-                  <label for="UsernameReciever">Username of Reciever:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="UsernameReciever"
-                  />
-                </div>
-              </div>
-
-
-              <div id="domesticTransfer" style="display: none">
-                <p>Domestic Transfer Requirements:</p>
-                <div class="form-group">
-                  <label for="BankName">Bank Name:</label>
-                  <input type="text" class="form-control" id="BankName" />
-                </div>
-                <div class="form-group">
-                  <label for="BankBranch">Bank Branch:</label>
-                  <input type="text" class="form-control" id="BankBranch" />
-                </div>
-                <div class="form-group">
-                  <label for="AccountNumber">Account Number:</label>
-                  <input type="text" class="form-control" id="AccountNumber" />
-                </div>
-              </div>
-
-
-              <div id="internationalTransfer" style="display: none">
-                <p>International Transfer Requirements:</p>
-                <div class="form-group">
-                  <label for="beneficiaryName">Beneficiary's Name:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="beneficiaryName"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="beneficiaryAccNo"
-                    >Beneficiary's Bank Account Number:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="beneficiaryAccNo"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="SwiftCode">Beneficiary's Bank Swift Code:</label>
-                  <input type="text" class="form-control" id="SwiftCode" />
-                </div>
-                <div class="form-group">
-                  <label for="PurposeofPayment">Purpose of Payment:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="PurposeofPayment"
-                  />
-                </div>
-              </div>
-
-            </div>
-
-            <div class="form-group">
-              <label for="TransferAmount">Amount:</label>
-              <input type="number" class="form-control" id="TransferAmount" />
-            </div>
+            <ul id="userList" class="list-group">
+              <!-- Random users will be dynamically inserted here -->
+            </ul>
           </div>
-
-          <!-- Modal footer -->
+    
+          <!-- Modal Footer -->
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-dismiss="modal"
-              onclick="Transfer()"
-            >
-              Transfer
-            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
+    
+    <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <script>
-      // Show requirements based on selected transfer option
-      $(document).ready(function () {
-        $("#transferOption").change(function () {
-          var selectedOption = $(this).val();
-          $("#requirements").show();
-          $("#internalTransfer").hide();
-          $("#domesticTransfer").hide();
-          $("#internationalTransfer").hide();
-
-          if (selectedOption === "internal") {
-            $("#internalTransfer").show();
-          } else if (selectedOption === "domestic") {
-            $("#domesticTransfer").show();
-          } else if (selectedOption === "international") {
-            $("#internationalTransfer").show();
-          }
+      // Sample array of random users
+      var randomUsers = [
+        "John Doe",
+        "Jane Smith",
+        "David Johnson",
+        "Sarah Wilson",
+        "Michael Brown"
+      ];
+    
+      // Function to display the list of random users in the modal
+      function displayUserList() {
+        var userList = document.getElementById("userList");
+    
+        // Clear any existing user list
+        userList.innerHTML = "";
+    
+        // Iterate over the randomUsers array and generate HTML for each user
+        randomUsers.forEach(function(user) {
+          // Create list item element
+          var listItem = document.createElement("li");
+          listItem.classList.add("list-group-item");
+          listItem.textContent = user;
+    
+          // Create accept button
+          var acceptBtn = document.createElement("button");
+          acceptBtn.classList.add("btn", "btn-success", "btn-sm", "float-right", "mr-2");
+          acceptBtn.textContent = "Accept";
+          acceptBtn.addEventListener("click", function() {
+            acceptUser(user);
+            listItem.remove();
+          });
+    
+          // Create reject button
+          var rejectBtn = document.createElement("button");
+          rejectBtn.classList.add("btn", "btn-danger", "btn-sm", "float-right");
+          rejectBtn.textContent = "Reject";
+          rejectBtn.addEventListener("click", function() {
+            rejectUser(user);
+            listItem.remove();
+          });
+    
+          // Append buttons to the list item
+          listItem.appendChild(rejectBtn);
+          listItem.appendChild(acceptBtn);
+    
+          // Append list item to the user list
+          userList.appendChild(listItem);
         });
+      }
+    
+      // Function to accept a user
+      function acceptUser(user) {
+        // Handle the logic for accepting the user
+        console.log("Accepted user:", user);
+      }
+    
+      // Function to reject a user
+      function rejectUser(user) {
+        // Handle the logic for rejecting the user
+        console.log("Rejected user:", user);
+      }
+    
+      // Attach event listener to the modal show event
+      $('#accountCreationModal').on('show.bs.modal', function () {
+        displayUserList();
       });
     </script>
-    <!-- Bootstrap JS -->
-
   </body>
 </html>

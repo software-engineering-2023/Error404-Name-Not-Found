@@ -88,28 +88,125 @@ function makePayment() {
   var waterChecked = document.getElementById("waterCheck").checked;
   var phoneChecked = document.getElementById("phoneCheck").checked;
 
+  let outOfBalance = false;
+  let alertMessage = "Not enough balance for: ";
   if (gasChecked) {
     var gasAmount = document.getElementById("gasAmount").value;
     // Process the payment for gas
-    console.log("Payment for gas: " + gasAmount);
+    if (balance < gasAmount) {
+      outOfBalance = true;
+      alertMessage += "Gas, ";
+    }
+    else
+    {
+      balance -= gasAmount;
+      setBalance();
+    }
   }
 
   if (electricityChecked) {
     var electricityAmount =
       document.getElementById("electricityAmount").value;
-    // Process the payment for electricity
-    console.log("Payment for electricity: " + electricityAmount);
+    
+    if (balance < electricityAmount) {
+      outOfBalance = true;
+      alertMessage += "Electricity, ";
+    }
+    else
+    {
+      balance -= electricityAmount;
+      setBalance();
+    }
   }
 
   if (waterChecked) {
     var waterAmount = document.getElementById("waterAmount").value;
-    // Process the payment for water
-    console.log("Payment for water: " + waterAmount);
+    
+    if (balance < waterAmount) {
+      outOfBalance = true;
+      alertMessage += "Water, ";
+    }
+    else
+    {
+      balance -= waterAmount;
+      setBalance();
+    }
   }
 
   if (phoneChecked) {
     var phoneAmount = document.getElementById("phoneAmount").value;
-    // Process the payment for phone
-    console.log("Payment for phone: " + phoneAmount);
+    
+    if (balance < phoneAmount) {
+      outOfBalance = true;
+      alertMessage += "Phone, ";
+    }
+    else
+    {
+      balance -= phoneAmount;
+      setBalance();
+    }
+  }
+  if (outOfBalance) {
+    alert(alertMessage.substring(0, alertMessage.length - 2) + "!");
+    return;
+  }
+}
+
+
+function lostCreditHandler(){
+  let lostCredit = document.getElementById("cardStatusLost").checked;
+  let stolenCredit = document.getElementById("cardStatusStolen").checked;
+
+  if(lostCredit){
+    alert("Your card has been lost! New one will be arriving soon...");
+  }
+  else if(stolenCredit){
+    alert("Your card has been stolen! Your card will be dectivated!");
+  }
+}
+
+function setReminders(){
+  var gasChecked = document.getElementById("gasReminder").checked;
+  var electricityChecked =
+    document.getElementById("electricityReminder").checked;
+  var waterChecked = document.getElementById("waterReminder").checked;
+  var phoneChecked = document.getElementById("phoneReminder").checked;
+
+  let outOfBalance = false;
+  let alertMessage = "Not enough balance for: ";
+  if (gasChecked) {
+    var gasAmount = document.getElementById("gasReminderAmount").value;
+    
+    setTimeout(function() {
+      notifyMe("Gas Bill", "Your gas bill is due!");
+      clearTimeout();
+    }, gasAmount * 1000);
+  }
+  if (electricityChecked) {
+    var electricityAmount =
+      document.getElementById("electricityReminderAmount").value;
+    
+    setTimeout(function() {
+      notifyMe("Electricity Bill", "Your electricity bill is due!");
+      clearTimeout();
+    }, electricityAmount * 1000);
+  }
+
+  if (waterChecked) {
+    var waterAmount = document.getElementById("waterReminderAmount").value;
+    
+    setTimeout(function() {
+      notifyMe("Water Bill", "Your water bill is due!");
+      clearTimeout();
+    }, waterAmount * 1000);
+  }
+
+  if (phoneChecked) {
+    var phoneAmount = document.getElementById("phoneReminderAmount").value;
+    
+    setTimeout(function() {
+      notifyMe("Phone Bill", "Your Phone bill is due!");
+      clearTimeout();
+    }, phoneAmount * 1000);
   }
 }

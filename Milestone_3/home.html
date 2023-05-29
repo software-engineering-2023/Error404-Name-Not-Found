@@ -33,10 +33,27 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-
+    <style>
+      #myBtn {
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: #1b5a8d; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+    </style>
   </head>
   <body>
     <!--header section start -->
+    <a href="signin.html" id="myBtn" title="Go to top">Log out</a>
+
     <section class="header_section">
       <div class="header_left">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -75,6 +92,7 @@
         <img src="images/banner-img.png" class="banner_img" />
       </div>
     </section>
+    
     <!--header section end -->
     <!--about section start -->
     <section class="services_section layout_padding">
@@ -117,6 +135,15 @@
                   data-target="#paymentModal"
                   style="color: #000000"
                   >Pay bills</a
+                >
+              </div>
+              <div class="moretransactions_btn" style="margin-left: 1rem">
+                <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#remindersModal"
+                  style="color: #000000"
+                  >Set Reminders</a
                 >
               </div>
             </div>
@@ -253,13 +280,13 @@
               <div class="social_icon">
                 <ul>
                   <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="images/fb-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="images/twitter-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin-icon.png" /></a>
                   </li>
                 </ul>
               </div>
@@ -275,13 +302,13 @@
               <div class="social_icon">
                 <ul>
                   <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="images/fb-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="images/twitter-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin-icon.png" /></a>
                   </li>
                 </ul>
               </div>
@@ -297,13 +324,13 @@
               <div class="social_icon">
                 <ul>
                   <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="images/fb-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="images/twitter-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin-icon.png" /></a>
                   </li>
                 </ul>
               </div>
@@ -319,13 +346,13 @@
               <div class="social_icon">
                 <ul>
                   <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="images/fb-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="images/twitter-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin-icon.png" /></a>
                   </li>
                 </ul>
               </div>
@@ -341,13 +368,13 @@
               <div class="social_icon">
                 <ul>
                   <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="images/fb-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="images/twitter-icon.png" /></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin-icon.png" /></a>
                   </li>
                 </ul>
               </div>
@@ -357,74 +384,6 @@
       </div>
     </div>
     <!--team section end -->
-    <!-- client section start -->
-    <!-- <div class="client_section layout_padding">
-      <div class="container">
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide"
-          data-ride="carousel"
-        >
-          <ol class="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              class="active"
-            ></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <h1 class="what_taital">what is syas our clients</h1>
-              <div class="client_section_2 layout_padding">
-                <ul>
-                  <li><img src="images/round-1.png" class="round_1" /></li>
-                  <li><img src="images/img-11.png" class="image_11" /></li>
-                  <li><img src="images/round-2.png" class="round_2" /></li>
-                </ul>
-                <p class="dummy_text">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem
-                </p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <h1 class="what_taital">what is syas our clients</h1>
-              <div class="client_section_2 layout_padding">
-                <ul>
-                  <li><img src="images/round-1.png" class="round_1" /></li>
-                  <li><img src="images/img-11.png" class="image_11" /></li>
-                  <li><img src="images/round-2.png" class="round_2" /></li>
-                </ul>
-                <p class="dummy_text">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem
-                </p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <h1 class="what_taital">what is syas our clients</h1>
-              <div class="client_section_2 layout_padding">
-                <ul>
-                  <li><img src="images/round-1.png" class="round_1" /></li>
-                  <li><img src="images/img-11.png" class="image_11" /></li>
-                  <li><img src="images/round-2.png" class="round_2" /></li>
-                </ul>
-                <p class="dummy_text">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!--client section end -->
     <!--footer section start -->
     <footer>
       <!-- This will be rendered using the footer component in component/footer.js -->

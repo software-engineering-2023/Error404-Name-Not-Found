@@ -11,7 +11,14 @@ let creditFees = localStorage.getItem("creditFees")
 
 let creditApplications = localStorage.getItem("creditApplications")
   ? JSON.parse(localStorage.getItem("creditApplications"))
-  : [];
+  : [
+    {
+      username: "Malak",
+    },
+    {
+      username: "Habiba",
+    },
+  ];
 
 let loanApplications = localStorage.getItem("loanApplications")
   ? JSON.parse(localStorage.getItem("loanApplications"))
@@ -256,6 +263,34 @@ let transactions_response = localStorage.getItem("transactions_response")
     ];
 
 
+let notificationsList = localStorage.getItem("notificationsList") ? JSON.parse(localStorage.getItem("notificationsList")) : 
+[
+  {
+    title: "Loan deadline",
+    message: "Your loan deadline is 30-6-2021",
+    url: "http://127.0.0.1:5500/Milestone_3/home.html",
+    delay: 5000,
+  },
+  {
+    title: "Credit Card Bill deadline",
+    message: "Your loan deadline is 31-6-2021",
+    url: "http://127.0.0.1:5500/Milestone_3/home.html",
+    delay: 10000,
+  },
+  {
+    title: "Your Issue was solved",
+    message: "Your issue was solved by our team",
+    url: "http://127.0.0.1:5500/Milestone_3/complaints.html",
+    delay: 0,
+  },
+];
+
+
+let complaintsList = localStorage.getItem("complaintsList") ? JSON.parse(localStorage.getItem("complaintsList")) :
+[];
+
+
+
 function setBalance() {
   localStorage.setItem("balance", balance);
   const balanceSpans = document.getElementsByClassName("balance");
@@ -291,4 +326,16 @@ function setLoanApplications(){
 
 function setLoanAccepted(){
   localStorage.setItem("loanAccepted", JSON.stringify(loanAccepted));
+}
+
+function setCreditApplications(){
+  localStorage.setItem("creditApplications", JSON.stringify(creditApplications));
+}
+
+function setCreditAccepted(){
+  localStorage.setItem("creditAccepted", JSON.stringify(creditAccepted));
+}
+
+function setComplaintsList(){
+  localStorage.setItem("complaintsList", JSON.stringify(complaintsList));
 }

@@ -44,8 +44,7 @@
       <div class="container-fluid">
         <h1 class="what_taital">Complaints</h1>
         <p class="amet_text">
-          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore
+          Enter your complaint here and our technical team will get back to you as soon as possible.
         </p>
         <div class="contact_section2">
           <div class="column">
@@ -58,13 +57,13 @@
                   name="Name"
                 />
                 <input
-                  type=""
+                  type="number"
                   class="mail_text_1"
                   placeholder="Phone Number"
                   name="Phone Number"
                 />
                 <input
-                  type=""
+                  type="email"
                   class="mail_text_1"
                   placeholder="Email"
                   name="Email"
@@ -76,7 +75,7 @@
                   id="comment"
                   name="Message"
                 ></textarea>
-                <div class="send_bt"><a href="#">send</a></div>
+                <div class="send_bt"><a onclick="submitComplaint()" style="color: white">send</a></div>
               </div>
             </div>
             <div class="w-75 mx-auto">
@@ -121,6 +120,35 @@
     <script src="components/componentHTML.js"></script>
     <script src="components/constantLayout.js"></script>
     <script src="components/balance.js"></script>
+
+    <script>
+      function submitComplaint(){
+        var name = document.getElementsByName("Name")[0].value;
+        var phone = document.getElementsByName("Phone Number")[0].value;
+        var email = document.getElementsByName("Email")[0].value;
+        var message = document.getElementsByName("Message")[0].value;
+        if (name == "" || phone == "" || email == "" || message == "") {
+          alert("Please fill all fields!");
+          return;
+        }
+        var complaint = {
+          name: name,
+          phone: phone,
+          email: email,
+          message: message
+        };
+        complaintsList.push(complaint);
+        setComplaintsList();
+
+        //clear fields
+        document.getElementsByName("Name")[0].value = "";
+        document.getElementsByName("Phone Number")[0].value = "";
+        document.getElementsByName("Email")[0].value = "";
+        document.getElementsByName("Message")[0].value = "";
+
+        alert("Your complaint has been submitted successfully!");
+      }
+    </script>
 
   </body>
 </html>

@@ -3,6 +3,15 @@ function fillLoanTable(){
     if (table_header) {
         table_header.innerHTML = "Loan Applications";
     }
+    let typeHeader = document.getElementById("typeHeader");
+    if (table_header) {
+        typeHeader.innerHTML = "Type";
+    }
+    let amountHeader = document.getElementById("amountHeader");
+    if (table_header) {
+        amountHeader.innerHTML = "Amount";
+    }
+
     let applications_table = document.getElementById("applications_table");
     let applications_table_html = "";
     for (let i = 0; i < loanApplications.length; i++) {
@@ -50,6 +59,17 @@ function fillCreditCardTable(){
     if (table_header) {
         table_header.innerHTML = "Credit Card Applications";
     }
+
+    let typeHeader = document.getElementById("typeHeader");
+    if (table_header) {
+        typeHeader.innerHTML = "";
+    }
+    let amountHeader = document.getElementById("amountHeader");
+    if (table_header) {
+        amountHeader.innerHTML = "";
+    }
+    let transactions_table = document.getElementById("transactions_table");
+    let transactions_table_html = "";
     let applications_table = document.getElementById("applications_table");
     let applications_table_html = "";
     for (let i = 0; i < creditApplications.length; i++) {
@@ -57,12 +77,12 @@ function fillCreditCardTable(){
 
         applications_table_html += "<tr>" +
             "<td scope='row'>"  + creditApplications[i]["username"] + "</td>" +
-            "<td scope='row'>" + type + "</td>" +
-            "<td scope='row'>$ " + creditApplications[i]["amount"] + "</td>" +
+            "<td scope='row'> </td>" +
+            "<td scope='row'>  </td>" +
             "<td scope='row' class='d-flex justify-content-end align-items-center'>" +
-            '<button type="button" class="btn rounded-circle" onclick="acceptLoan(' + i +
+            '<button type="button" class="btn rounded-circle" onclick="acceptCredit(' + i +
             ')"><i style="font-size: 2rem; color: white; padding-block: 0" class="bi bi-check-circle-fill"></i></button>' + 
-            '<button type="button" class="btn rounded-circle" onclick="rejectLoan(' + i + 
+            '<button type="button" class="btn rounded-circle" onclick="rejectCredit(' + i + 
             ')"><i style="font-size: 2rem; color: white; padding-block: 0" class="bi bi-x-circle-fill"></i></button>' +
             "</td>" +
             "</tr>";
@@ -93,8 +113,7 @@ function fillUserAccountTable(name){
     if (table_header) {
         table_header.innerHTML = name + "'s Transactions  <img src='https://img.icons8.com/?size=512&id=P1YG1sk94HiB&format=png' width=20px>";
     }
-    let transactions_table = document.getElementById("transactions_table");
-    let transactions_table_html = "";
+
 
     for (let i = 0; i < transactions_response.length; i++) {
         let type = transactions_response[i]["type"];

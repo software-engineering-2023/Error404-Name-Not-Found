@@ -153,11 +153,15 @@
 
         if (username == "user" && password == "user") {
           window.location.href = "home.html";
-        } else if (
-          (username == "admin" && password == "admin") ||
-          (username == "banker" && password == "banker")
-        ) {
-          window.location.href = "home.html"; //will be changed after creation of home admin and home banker
+        } else if (username == "admin" && password == "admin"){
+          window.location.href = "admin.html";
+        }else if (username == "banker" && password == "banker")
+        {
+          window.location.href = "banker.html";
+        }
+        else
+        {
+          alert("Invalid username or password");
         }
       }
     </script>

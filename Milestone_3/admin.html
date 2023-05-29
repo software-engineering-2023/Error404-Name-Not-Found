@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>Lucky Bank</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- fevicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <!-- Tweaks for older IEs-->
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      #myBtn {
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: #1b5a8d; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="header_section">
+      <nav
+        class="flex navbar justify-content-center"
+        style="height: max-content"
+      >
+        <div class="logo" style="width: fit-content">
+          <a href="admin.html"
+            ><img src="images/logo.png" style="width: 150px"
+          /></a>
+        </div>
+      </nav>
+    </section>
+    <a href="signin.html" id="myBtn" title="Go to top">Log out</a>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="complaintModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="complaintModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="complaintModalLabel">
+              User Complaints
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <div id="complaintContainer">
+              <!-- Complaints will be dynamically inserted here -->
+            </div>
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="changeComplaintBtn"
+            >
+              Next Complaint
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--about section start -->
+    <section class="services_section layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="services_taital">View Complaints:</h1>
+
+            <div class="btn_main">
+              <div class="moretransactions_btn">
+                <a
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#complaintModal"
+                  data-whatever="@mdo"
+                  style="color: #000000"
+                >
+                  Complaints
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--about section end -->
+   
+    <!--project section end -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="components/states.js"></script>
+    <script>
+      // Sample array of user complaints (replace with your own logic to generate complaints)
+      var userComplaints = [
+        {
+          username: "Karim Abdelaziz",
+          issue: "Unable to login",
+          complaint: "I am unable to login to my account. Please assist.",
+        },
+        {
+          username: "Gamila Awad",
+          issue: "Account balance discrepancy",
+          complaint:
+            "There is a discrepancy in my account balance. The transactions seem incorrect.",
+        },
+        {
+          username: "Marina Nader",
+          issue: "Transaction failure",
+          complaint:
+            "I tried to make a transfer, but the transaction failed without any error message.",
+        },
+      ];
+
+      var currentComplaintIndex = 0; // Index of the currently displayed complaint
+
+      // Function to generate a random username
+      function generateRandomUsername() {
+        var randomSuffix = Math.floor(Math.random() * 1000);
+        return "User" + randomSuffix;
+      }
+
+      // Function to generate the complaint HTML and display it in the modal
+      function displayComplaint(complaintIndex) {
+        var complaintContainer = document.getElementById("complaintContainer");
+        var complaint = userComplaints[complaintIndex];
+
+        // Clear any existing complaints
+        complaintContainer.innerHTML = "";
+
+        // Generate HTML for the complaint and append it to the container
+        var complaintHTML = `
+      <div class="card mb-3">
+        <div class="card-header">
+          <h5 class="card-title">User: ${complaint.username}</h5>
+          <h5 class="card-title">Issue: ${complaint.issue}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">${complaint.complaint}</p>
+          <div class="form-group">
+            <label for="reply${complaintIndex}">Admin Reply:</label>
+            <textarea class="form-control" id="reply${complaintIndex}" rows="3"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary submit-reply" data-complaint-index="${complaintIndex}" disabled>Submit</button>
+        </div>
+      </div>
+    `;
+
+        complaintContainer.innerHTML = complaintHTML;
+
+        // Enable/disable the Submit button based on whether there is text in the reply textarea
+        var replyTextarea = document.getElementById(`reply${complaintIndex}`);
+        var submitReplyBtn = document.getElementsByClassName("submit-reply")[0];
+        submitReplyBtn.disabled = replyTextarea.value.trim() === "";
+
+        // Attach event listener to the reply textarea to enable/disable the Submit button dynamically
+        replyTextarea.addEventListener("input", function () {
+          submitReplyBtn.disabled = replyTextarea.value.trim() === "";
+        });
+
+        // Attach event listener to the Submit button to submit the reply
+        submitReplyBtn.addEventListener("click", function () {
+          var reply = replyTextarea.value.trim();
+          if (reply !== "") {
+            submitReply(complaintIndex, reply);
+            submitReplyBtn.disabled = true;
+            replyTextarea.disabled = true;
+            if (complaintIndex !== currentComplaintIndex) {
+              complaintContainer.innerHTML = "<p>No Complaints to show</p>";
+            }
+          }
+        });
+      }
+
+      // Function to submit the reply for the complaint
+      function submitReply(complaintIndex, reply) {
+        // Here you can handle the logic to submit the reply to the backend or perform any necessary actions
+        console.log(
+          `Submitted Reply for Complaint ${complaintIndex + 1}: ${reply}`
+        );
+        userComplaints.splice(complaintIndex, 1); // Remove the complaint from the array
+      }
+
+      // Function to change the displayed complaint
+      function changeComplaint() {
+        currentComplaintIndex =
+          (currentComplaintIndex + 1) % userComplaints.length;
+        if (userComplaints.length === 0) {
+          var complaintContainer =
+            document.getElementById("complaintContainer");
+          complaintContainer.innerHTML = "<p>No Complaints to show</p>";
+        } else {
+          displayComplaint(currentComplaintIndex);
+        }
+      }
+
+      // Attach event listener to the Change Complaint button
+      document
+        .getElementById("changeComplaintBtn")
+        .addEventListener("click", changeComplaint);
+
+      // Display the initial complaint
+      if (userComplaints.length === 0) {
+        var complaintContainer = document.getElementById("complaintContainer");
+        complaintContainer.innerHTML = "<p>No Complaints to show</p>";
+      } else {
+        displayComplaint(currentComplaintIndex);
+      }
+    </script>
+  </body>
+</html>
