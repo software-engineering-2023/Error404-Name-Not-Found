@@ -161,7 +161,7 @@ function lostCreditHandler(){
     alert("Your card has been lost! New one will be arriving soon...");
   }
   else if(stolenCredit){
-    alert("Your card has been stolen! Your card will be dectivated!");
+    alert("Your card has been stolen! Your card will be dectivated!\nNew one will be arriving soon...");
   }
 }
 
