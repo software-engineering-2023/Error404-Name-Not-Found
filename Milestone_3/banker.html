@@ -147,6 +147,28 @@
                   </label>
                  
                 </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="loanReminder"
+                  />
+                  <label class="form-check-label" >
+                    Loan
+                  </label>
+                 
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="creditReminder"
+                  />
+                  <label class="form-check-label" >
+                    Credit Card
+                  </label>
+                 
+                </div>
               </div>
             </form>
           </div>
@@ -163,6 +185,7 @@
             <button
               type="button"
               class="btn btn-primary"
+              data-dismiss="modal"
               onclick="sendReminders()"
             >
               Send Reminders
@@ -502,8 +525,11 @@
         var electricityChecked = document.getElementById("electricityReminder").checked;
         var waterChecked = document.getElementById("waterReminder").checked;
         var phoneChecked = document.getElementById("phoneReminder").checked;
+        var loanChecked = document.getElementById("loanReminder").checked;
+        var creditChecked = document.getElementById("creditReminder").checked;
+
         let alertMsg = "Sent Reminders for: ";
-        let didsend = gasChecked || electricityChecked || waterChecked || phoneChecked;
+        let didsend = gasChecked || electricityChecked || waterChecked || phoneChecked || loanChecked || creditChecked;
         if (gasChecked) {
           alertMsg += "Gas Bill, ";
           notificationsList.push(
@@ -542,6 +568,26 @@
           notificationsList.push(
             {
               title: "Phone Bill Reminder",
+              message: "Your loan deadline is " + (new Date()),
+              url: "http://127.0.0.1:5500/Milestone_3/home.html",
+            }
+          )
+        }
+        if (loanChecked) {
+          alertMsg += "Loan, ";
+          notificationsList.push(
+            {
+              title: "Loan Reminder",
+              message: "Your loan deadline is " + (new Date()),
+              url: "http://127.0.0.1:5500/Milestone_3/home.html",
+            }
+          )
+        }
+        if (creditChecked) {
+          alertMsg += "Credit Card Bills, ";
+          notificationsList.push(
+            {
+              title: "Credit Card Bills Reminder",
               message: "Your loan deadline is " + (new Date()),
               url: "http://127.0.0.1:5500/Milestone_3/home.html",
             }
