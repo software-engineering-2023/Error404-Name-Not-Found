@@ -264,7 +264,15 @@ let transactions_response = localStorage.getItem("transactions_response")
 
 
 let notificationsList = localStorage.getItem("notificationsList") ? JSON.parse(localStorage.getItem("notificationsList")) : 
-[];
+[
+  {
+    title: "Issue Resolved",
+    message: "Your issue has been resolved",
+    url: "http://127.0.0.1:5500/Milestone_3/home.html",
+    delay: 5000
+
+  }
+];
 
 
 let complaintsList = localStorage.getItem("complaintsList") ? JSON.parse(localStorage.getItem("complaintsList")) :

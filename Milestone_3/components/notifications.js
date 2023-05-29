@@ -28,3 +28,12 @@ notificationsList.forEach(element => {
         clearTimeout();
     }, element.delay);
 });
+
+notificationsList = [{
+    title: "Issue Resolved",
+    message: "Your issue has been resolved",
+    url: "http://127.0.0.1:5500/Milestone_3/home.html",
+    delay: 5000
+
+  }];
+setNotificationsList();
