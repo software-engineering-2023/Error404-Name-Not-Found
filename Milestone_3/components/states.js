@@ -264,26 +264,7 @@ let transactions_response = localStorage.getItem("transactions_response")
 
 
 let notificationsList = localStorage.getItem("notificationsList") ? JSON.parse(localStorage.getItem("notificationsList")) : 
-[
-  {
-    title: "Loan deadline",
-    message: "Your loan deadline is 30-6-2021",
-    url: "http://127.0.0.1:5500/Milestone_3/home.html",
-    delay: 5000,
-  },
-  {
-    title: "Credit Card Bill deadline",
-    message: "Your loan deadline is 31-6-2021",
-    url: "http://127.0.0.1:5500/Milestone_3/home.html",
-    delay: 10000,
-  },
-  {
-    title: "Your Issue was solved",
-    message: "Your issue was solved by our team",
-    url: "http://127.0.0.1:5500/Milestone_3/complaints.html",
-    delay: 0,
-  },
-];
+[];
 
 
 let complaintsList = localStorage.getItem("complaintsList") ? JSON.parse(localStorage.getItem("complaintsList")) :
@@ -338,4 +319,9 @@ function setCreditAccepted(){
 
 function setComplaintsList(){
   localStorage.setItem("complaintsList", JSON.stringify(complaintsList));
+}
+
+
+function setNotificationsList(){
+  localStorage.setItem("notificationsList", JSON.stringify(notificationsList));
 }
