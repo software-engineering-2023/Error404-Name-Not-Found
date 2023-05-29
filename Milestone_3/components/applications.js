@@ -76,3 +76,40 @@ function Transfer() {
   // });
   alert("Transfer Done!");
 }
+
+function toggleAmountInput(amountId, checked) {
+  document.getElementById(amountId).disabled = !checked;
+}
+
+function makePayment() {
+  var gasChecked = document.getElementById("gasCheck").checked;
+  var electricityChecked =
+    document.getElementById("electricityCheck").checked;
+  var waterChecked = document.getElementById("waterCheck").checked;
+  var phoneChecked = document.getElementById("phoneCheck").checked;
+
+  if (gasChecked) {
+    var gasAmount = document.getElementById("gasAmount").value;
+    // Process the payment for gas
+    console.log("Payment for gas: " + gasAmount);
+  }
+
+  if (electricityChecked) {
+    var electricityAmount =
+      document.getElementById("electricityAmount").value;
+    // Process the payment for electricity
+    console.log("Payment for electricity: " + electricityAmount);
+  }
+
+  if (waterChecked) {
+    var waterAmount = document.getElementById("waterAmount").value;
+    // Process the payment for water
+    console.log("Payment for water: " + waterAmount);
+  }
+
+  if (phoneChecked) {
+    var phoneAmount = document.getElementById("phoneAmount").value;
+    // Process the payment for phone
+    console.log("Payment for phone: " + phoneAmount);
+  }
+}

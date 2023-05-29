@@ -17,7 +17,21 @@ let carLoanApplications = localStorage.getItem("carLoanApplications")
   : [];
 let personalLoanApplications = localStorage.getItem("personalLoanApplications")
   ? JSON.parse(localStorage.getItem("personalLoanApplications"))
-  : [];
+  : [
+    {
+      username: "Transaction 1",
+      amount: -1000,
+      type: "Bank",
+      type: "briefcase",
+    },
+    {
+      title: "Transaction 2",
+      date: "2022-01-01",
+      bankOrCredit: "credit",
+      amount: 200,
+      type: "exchange",
+    },
+  ];
 
 let creditAccepted = localStorage.getItem("creditAccepted")
   ? JSON.parse(localStorage.getItem("creditAccepted"))
@@ -187,6 +201,7 @@ let transactions_response = localStorage.getItem("transactions_response")
         type: "exchange",
       },
     ];
+
 
 function setBalance() {
   localStorage.setItem("balance", balance);

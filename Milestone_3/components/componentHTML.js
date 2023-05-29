@@ -370,26 +370,127 @@ const transferModal = /*html*/ `
 </div>`;
 
 
-const scripts = /*html*/ `
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-  // Show requirements based on selected transfer option
-  $(document).ready(function () {
-    $("#transferOption").change(function () {
-      var selectedOption = $(this).val();
-      $("#requirements").show();
-      $("#internalTransfer").hide();
-      $("#domesticTransfer").hide();
-      $("#internationalTransfer").hide();
+const paymentModal = /*html*/ `
+<div
+class="modal fade"
+id="paymentModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="paymentModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h5 class="modal-title" id="paymentModalLabel">Make Payment</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-      if (selectedOption === "internal") {
-        $("#internalTransfer").show();
-      } else if (selectedOption === "domestic") {
-        $("#domesticTransfer").show();
-      } else if (selectedOption === "international") {
-        $("#internationalTransfer").show();
-      }
-    });
-  });
-</script>`;
+    <!-- Modal Body -->
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label>Select Payment Option:</label><br />
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gasCheck"
+              onchange="toggleAmountInput('gasAmount', this.checked)"
+            />
+            <label class="form-check-label" for="gasCheck"> Gas </label>
+            <input
+              type="number"
+              class="form-control"
+              id="gasAmount"
+              placeholder="Enter partial amount"
+              disabled
+            />
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="electricityCheck"
+              onchange="toggleAmountInput('electricityAmount', this.checked)"
+            />
+            <label class="form-check-label" for="electricityCheck">
+              Electricity
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="electricityAmount"
+              placeholder="Enter partial amount"
+              disabled
+            />
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="waterCheck"
+              onchange="toggleAmountInput('waterAmount', this.checked)"
+            />
+            <label class="form-check-label" for="waterCheck">
+              Water
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="waterAmount"
+              placeholder="Enter partial amount"
+              disabled
+            />
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="phoneCheck"
+              onchange="toggleAmountInput('phoneAmount', this.checked)"
+            />
+            <label class="form-check-label" for="phoneCheck">
+              Phone
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="phoneAmount"
+              placeholder="Enter partial amount"
+              disabled
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+      >
+        Close
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        onclick="makePayment()"
+      >
+        Make Payment
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+`;

@@ -37,68 +37,112 @@
   </head>
   <body>
     <!--header section start -->
-    <section class="header_section">
-      <div class="header_left">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <!-- This will be rendered using the navbar component in component/navbar.js -->
+    <section class="header_section" >
+        <nav class="flex navbar justify-content-center" style="height: max-content;">
+            <div class="logo" style="width: fit-content;"><a href="banker.html"><img src="images/logo.png" style="width: 150px;"></a></div>
         </nav>
-        <div class="banner_main">
-          <h1 class="banner_taital">financial <br />Service</h1>
-          <p class="banner_text">
-            Here at Lucky Bank financial services, we are dedicated to you and
-            all your different accounting needs. We've been around for over 20
-            years and we've won several awards for the best online banking
-            service. But, our most important win is making you a happy,
-            life-long customer.
-          </p>
-          <div class="btn_main">
-            <div class="transactions_btn">
-              <a href="transactions.html">Transactions</a>
+    </section>
+    <div class="modal fade" id="personalLoan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
+        <div class="wrapper rounded w-100" style="background-color: #fff;" >
+          <nav
+            class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start"
+          >
+            <a class="navbar-brand" href="#" style="color: #181818; font-size: 1.5rem; font-weight: bold;"
+              >Loans
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+          <div class="row mt-2 pt-2">
+            <div class="col-md-6" id="income">
+              <div class="d-flex justify-content-start align-items-center">
+                <p class="fa fa-long-arrow-up"></p>
+                <p class="text mx-3">Balance</p>
+                <p class="text-white ml-4 money">$ <span class="balance" ></span> </p>
+              </div>
             </div>
-            <div class="transfer_btn">
-              <a type="button" data-toggle="modal" data-target="#transferModal">
-                Transfer
-              </a>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <ul class="nav nav-tabs w-75">
+              <li class="nav-item">
+                <a class="nav-link active" href="#history">History</a>
+              </li>
+            </ul>
+          </div>
+          <div class="table-responsive mt-3">
+            <table class="table table-dark table-borderless" >
+              <thead>
+                <tr>
+                  <th scope="col">Username</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col" class="text-right">Accept or Reject</th>
+                </tr>
+              </thead>
+              <tbody id="transactions_table"></tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-between align-items-center results">
+            <span class="pl-md-3">
+              Showing<b class="text-white" id="page_number"></b>
+              applications
+            </span>
+            <div class="pt-3">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a
+                      class="page-link"
+                      aria-label="Previous"
+                      onclick="fillTablePrev()"
+                    >
+                      <span aria-hidden="true">&lt;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a
+                      class="page-link"
+                      aria-label="Next"
+                      onclick="fillTableNext()"
+                    >
+                      <span aria-hidden="true">&gt;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-            <!--  <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#transferModal"
-    >
-      Open Transfer Modal
-    </button> -->
           </div>
         </div>
       </div>
-      <div class="header_right">
-        <img src="images/banner-img.png" class="banner_img" />
-      </div>
-    </section>
+    </div>
     <!--header section end -->
     <!--about section start -->
     <section class="services_section layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <h1 class="services_taital">WELCOME TO FINANCIAL SERVICES</h1>
-            <p class="services_text">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it
-            </p>
+            <h1 class="services_taital">Loan requests:</h1>
+
             <div class="btn_main">
               <div class="moretransactions_btn">
                 <a
                   type="button"
                   data-toggle="modal"
-                  data-target="#PaycreditCardModal"
+                  data-target="#personalLoan"
                   data-whatever="@mdo"
                   style="color: #000000"
                 >
-                  Pay Credit Fees
+                  Personal Loans
                 </a>
               </div>
               <div class="moretransactions_btn" style="margin-left: 1rem">
@@ -107,22 +151,11 @@
                   data-toggle="modal"
                   data-target="#cardStatusModal"
                   style="color: #000000"
-                  >Lost Credit Card</a
+                  >Car Loans</a
                 >
               </div>
-              <div class="moretransactions_btn" style="margin-left: 1rem">
-                <a
-                  type="button"
-                  data-toggle="modal"
-                  data-target="#paymentModal"
-                  style="color: #000000"
-                  >Pay bills</a
-                >
-              </div>
+              
             </div>
-          </div>
-          <div class="col-md-4">
-            <div><img src="images/img-1.png" class="image_1" /></div>
           </div>
         </div>
       </div>
@@ -357,74 +390,7 @@
       </div>
     </div>
     <!--team section end -->
-    <!-- client section start -->
-    <!-- <div class="client_section layout_padding">
-      <div class="container">
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide"
-          data-ride="carousel"
-        >
-          <ol class="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              class="active"
-            ></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <h1 class="what_taital">what is syas our clients</h1>
-              <div class="client_section_2 layout_padding">
-                <ul>
-                  <li><img src="images/round-1.png" class="round_1" /></li>
-                  <li><img src="images/img-11.png" class="image_11" /></li>
-                  <li><img src="images/round-2.png" class="round_2" /></li>
-                </ul>
-                <p class="dummy_text">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem
-                </p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <h1 class="what_taital">what is syas our clients</h1>
-              <div class="client_section_2 layout_padding">
-                <ul>
-                  <li><img src="images/round-1.png" class="round_1" /></li>
-                  <li><img src="images/img-11.png" class="image_11" /></li>
-                  <li><img src="images/round-2.png" class="round_2" /></li>
-                </ul>
-                <p class="dummy_text">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem
-                </p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <h1 class="what_taital">what is syas our clients</h1>
-              <div class="client_section_2 layout_padding">
-                <ul>
-                  <li><img src="images/round-1.png" class="round_1" /></li>
-                  <li><img src="images/img-11.png" class="image_11" /></li>
-                  <li><img src="images/round-2.png" class="round_2" /></li>
-                </ul>
-                <p class="dummy_text">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!--client section end -->
+
     <!--footer section start -->
     <footer>
       <!-- This will be rendered using the footer component in component/footer.js -->
@@ -444,31 +410,8 @@
 
     <!-- Component -->
     <script src="components/states.js"></script>
-    <script src="components/applications.js"></script>
-    <script src="components/componentHTML.js"></script>
-    <script src="components/constantLayout.js"></script>
-    <script src="components/balance.js"></script>
-    <script>
-      // Show requirements based on selected transfer option
-      $(document).ready(function () {
-        $("#transferOption").change(function () {
-          var selectedOption = $(this).val();
-          $("#requirements").show();
-          $("#internalTransfer").hide();
-          $("#domesticTransfer").hide();
-          $("#internationalTransfer").hide();
+    <script src="components/banker.js"></script>
 
-          if (selectedOption === "internal") {
-            $("#internalTransfer").show();
-          } else if (selectedOption === "domestic") {
-            $("#domesticTransfer").show();
-          } else if (selectedOption === "international") {
-            $("#internationalTransfer").show();
-          }
-        });
-      });
-    </script> 
-    <script src="components/notifications.js"></script>
   
   </body>
 </html>
