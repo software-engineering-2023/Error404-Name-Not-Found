@@ -896,3 +896,19 @@ button {
 .margin_top_90{
   margin-top: 90px;
 }
+
+// .remove-scroll-bar{
+//     -ms-overflow-style: none;  /* IE and Edge */
+//     scrollbar-width: none;  /* Firefox */
+// }
+
+// .remove-scroll-bar::-webkit-scrollbar {
+//     display: none; /* Chrome, Safari, Opera*/
+// }
+.modal {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.modal::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}

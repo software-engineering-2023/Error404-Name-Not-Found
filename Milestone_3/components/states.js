@@ -12,35 +12,88 @@ let creditFees = localStorage.getItem("creditFees")
 let creditApplications = localStorage.getItem("creditApplications")
   ? JSON.parse(localStorage.getItem("creditApplications"))
   : [];
-let carLoanApplications = localStorage.getItem("carLoanApplications")
-  ? JSON.parse(localStorage.getItem("carLoanApplications"))
-  : [];
-let personalLoanApplications = localStorage.getItem("personalLoanApplications")
-  ? JSON.parse(localStorage.getItem("personalLoanApplications"))
+
+let loanApplications = localStorage.getItem("loanApplications")
+  ? JSON.parse(localStorage.getItem("loanApplications"))
   : [
     {
-      username: "Transaction 1",
-      amount: -1000,
-      type: "Bank",
-      type: "briefcase",
+      username: "Malak",
+      amount: 1000,
+      type: "car",
     },
     {
-      title: "Transaction 2",
-      date: "2022-01-01",
-      bankOrCredit: "credit",
+      username: "Habiba",
       amount: 200,
-      type: "exchange",
+      type: "personal",
+    },
+    {
+      username: "Malak",
+      amount: 1000,
+      type: "car",
+    },
+    {
+      username: "Habiba",
+      amount: 200,
+      type: "personal",
+    },
+    {
+      username: "Malak",
+      amount: 1000,
+      type: "car",
+    },
+    {
+      username: "Habiba",
+      amount: 200,
+      type: "personal",
+    },
+    {
+      username: "Malak",
+      amount: 1000,
+      type: "car",
+    },
+    {
+      username: "Habiba",
+      amount: 200,
+      type: "personal",
+    },
+    {
+      username: "Malak",
+      amount: 1000,
+      type: "car",
+    },
+    {
+      username: "Habiba",
+      amount: 200,
+      type: "personal",
+    },
+    {
+      username: "Malak",
+      amount: 1000,
+      type: "car",
+    },
+    {
+      username: "Habiba",
+      amount: 200,
+      type: "personal",
+    },
+    {
+      username: "Malak",
+      amount: 1000,
+      type: "car",
+    },
+    {
+      username: "Habiba",
+      amount: 200,
+      type: "personal",
     },
   ];
 
 let creditAccepted = localStorage.getItem("creditAccepted")
   ? JSON.parse(localStorage.getItem("creditAccepted"))
-  : [1];
-let carLoanAccepted = localStorage.getItem("carLoanAccepted")
-  ? JSON.parse(localStorage.getItem("carLoanAccepted"))
   : [];
-let personalLoanAccepted = localStorage.getItem("personalLoanAccepted")
-  ? JSON.parse(localStorage.getItem("personalLoanAccepted"))
+
+let loanAccepted = localStorage.getItem("loanAccepted")
+  ? JSON.parse(localStorage.getItem("loanAccepted"))
   : [];
 
 let transactions_response = localStorage.getItem("transactions_response")
@@ -230,4 +283,12 @@ function setCreditFees() {
       creditFeesSpans[i].innerHTML = creditFees;
     }
   }
+}
+
+function setLoanApplications(){
+  localStorage.setItem("loanApplications", JSON.stringify(loanApplications));
+}
+
+function setLoanAccepted(){
+  localStorage.setItem("loanAccepted", JSON.stringify(loanAccepted));
 }

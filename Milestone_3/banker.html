@@ -13,8 +13,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <!-- bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
     <!-- style css -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <!-- Responsive-->
@@ -34,92 +33,85 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="css/transactions.css" />
+
   </head>
   <body>
     <!--header section start -->
-    <section class="header_section" >
-        <nav class="flex navbar justify-content-center" style="height: max-content;">
-            <div class="logo" style="width: fit-content;"><a href="banker.html"><img src="images/logo.png" style="width: 150px;"></a></div>
-        </nav>
+    <section class="header_section">
+      <nav
+        class="flex navbar justify-content-center"
+        style="height: max-content"
+      >
+        <div class="logo" style="width: fit-content">
+          <a href="banker.html"
+            ><img src="images/logo.png" style="width: 150px"
+          /></a>
+        </div>
+      </nav>
     </section>
-    <div class="modal fade" id="personalLoan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
-        <div class="wrapper rounded w-100" style="background-color: #fff;" >
-          <nav
-            class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start"
-          >
-            <a class="navbar-brand" href="#" style="color: #181818; font-size: 1.5rem; font-weight: bold;"
-              >Loans
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
+    <!-- Modal -->
+    <div class="modal fade remove-scroll-bar" id="personalLoan" tabindex="-1" role="dialog" aria-labelledby="personalLoanModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="personalLoanModalLabel"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
-          </nav>
-          <div class="row mt-2 pt-2">
-            <div class="col-md-6" id="income">
-              <div class="d-flex justify-content-start align-items-center">
-                <p class="fa fa-long-arrow-up"></p>
-                <p class="text mx-3">Balance</p>
-                <p class="text-white ml-4 money">$ <span class="balance" ></span> </p>
-              </div>
+          </div>
+    
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <div id="applicationsContainer">
+              <table class="table table-dark table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col" class="text-right">Accept or Reject</th>
+                  </tr>
+                </thead>
+                <tbody id="applications_table"></tbody>
+              </table>
             </div>
           </div>
-          <div class="d-flex justify-content-between align-items-center mt-3">
-            <ul class="nav nav-tabs w-75">
-              <li class="nav-item">
-                <a class="nav-link active" href="#history">History</a>
-              </li>
-            </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade remove-scroll-bar" id="userAccount" tabindex="-1" role="dialog" aria-labelledby="userAccountLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="userAccountLabel"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="table-responsive mt-3">
-            <table class="table table-dark table-borderless" >
-              <thead>
-                <tr>
-                  <th scope="col">Username</th>
-                  <th scope="col">Type</th>
-                  <th scope="col">Amount</th>
-                  <th scope="col" class="text-right">Accept or Reject</th>
-                </tr>
-              </thead>
-              <tbody id="transactions_table"></tbody>
-            </table>
-          </div>
-          <div class="d-flex justify-content-between align-items-center results">
-            <span class="pl-md-3">
-              Showing<b class="text-white" id="page_number"></b>
-              applications
-            </span>
-            <div class="pt-3">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a
-                      class="page-link"
-                      aria-label="Previous"
-                      onclick="fillTablePrev()"
-                    >
-                      <span aria-hidden="true">&lt;</span>
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a
-                      class="page-link"
-                      aria-label="Next"
-                      onclick="fillTableNext()"
-                    >
-                      <span aria-hidden="true">&gt;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+    
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <div id="applicationsContainer">
+              <table class="table table-dark table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">Activity</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col" class="text-right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody id="transactions_table"></tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -131,8 +123,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <h1 class="services_taital">Loan requests:</h1>
-
+            <h1 class="services_taital">Applications:</h1>
+            <p class="services_text">
+              Review and accept or reject applications for loans and credit cards.
             <div class="btn_main">
               <div class="moretransactions_btn">
                 <a
@@ -141,256 +134,30 @@
                   data-target="#personalLoan"
                   data-whatever="@mdo"
                   style="color: #000000"
+                  onclick="fillLoanTable()"
                 >
-                  Personal Loans
+                  Loans
                 </a>
               </div>
               <div class="moretransactions_btn" style="margin-left: 1rem">
                 <a
                   type="button"
                   data-toggle="modal"
-                  data-target="#cardStatusModal"
+                  data-target="#personalLoan"
                   style="color: #000000"
-                  >Car Loans</a
+                  onclick="fillCreditCardTable()"
+                >
+                Credit Cards
+                </a
                 >
               </div>
-              
             </div>
           </div>
         </div>
       </div>
     </section>
     <!--about section end -->
-    <!--services section start -->
-    <section class="what_we_do_section layout_padding p-5">
-      <div class="container">
-        <h1 class="what_taital">Ways We can be of help</h1>
-        <p class="what_text">
-          Here at Lucky Bank financial services, we offer a wide range of
-          services to help you with your financial needs.
-        </p>
-        <div class="what_we_do_section_2">
-          <div class="row justify-content-center">
-            <div class="col-lg-3 col-sm-6">
-              <div class="box_main creditCardApplication">
-                <div class="icon_1"><img src="images/icon-4.png" /></div>
-                <h3 class="accounting_text">Credit Card</h3>
-                <p class="lorem_text p-md-2" id="creditCardP">
-                  Apply and get your credit card as soon as possible.
-                </p>
-                <div class="moretransactions_btn_1" id="creditCardBtn">
-                  <a
-                    type="button"
-                    data-toggle="modal"
-                    data-target="#creditCardModal"
-                    data-whatever="@mdo"
-                    style="color: #fff"
-                  >
-                    Apply
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-              <div class="box_main">
-                <div class="icon_1"><img src="images/icon-1.png" /></div>
-                <h3 class="accounting_text">Car Loan</h3>
-                <p class="lorem_text p-md-2">
-                  Get funding for your dream car at the best rates.
-                </p>
-                <div class="moretransactions_btn_1">
-                  <a
-                    type="button"
-                    data-toggle="modal"
-                    data-target="#carLoanModal"
-                    data-whatever="@mdo"
-                    style="color: #fff"
-                  >
-                    Apply
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-              <div class="box_main">
-                <div class="icon_1"><img src="images/icon-1.png" /></div>
-                <h3 class="accounting_text">Personal Loan</h3>
-                <p class="lorem_text p-md-2">
-                  Financial freedom starts today with our Personal Loan!
-                </p>
-                <div class="moretransactions_btn_1">
-                  <a
-                    type="button"
-                    data-toggle="modal"
-                    data-target="#personalLoanModal"
-                    data-whatever="@mdo"
-                    style="color: #fff"
-                  >
-                    Apply
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--services section end -->
-    <!--project section start -->
-
-    <div class="project_section_2 layout_padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <div class="icon_1"><img src="images/icon-3.png" /></div>
-            <h3 class="accounting_text_1">1000+</h3>
-            <p class="yers_text">Years of Business</p>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="icon_1"><img src="images/icon-4.png" /></div>
-            <h3 class="accounting_text_1">20000+</h3>
-            <p class="yers_text">Projects Delivered</p>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="icon_1"><img src="images/icon-2.png" /></div>
-            <h3 class="accounting_text_1">10000+</h3>
-            <p class="yers_text">Satisfied Customers</p>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="icon_1"><img src="images/icon-1.png" /></div>
-            <h3 class="accounting_text_1">1500+</h3>
-            <p class="yers_text">Services</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--project section end -->
-    <!--team section start -->
-
-    <div class="team_section layout_padding">
-      <div class="container">
-        <h1 class="what_taital">Our Team and experts</h1>
-        <p class="what_text_1"></p>
-        <div class="team_section_2 layout_padding">
-          <div class="row">
-            <div class="col-sm-3">
-              <img
-                src="images/Malak.jpg"
-                style="aspect-ratio: 1; object-fit: cover"
-                class="image_7 rounded-circle"
-              />
-              <p class="readable_text">Malak Badawy</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                  <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <img
-                src="images/Habiba.jpg"
-                style="aspect-ratio: 1; object-fit: cover"
-                class="image_7 rounded-circle"
-              />
-              <p class="readable_text">Habiba Essam</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                  <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <img
-                src="images/Ziad.jpg"
-                style="aspect-ratio: 1; object-fit: cover"
-                class="image_7 rounded-circle"
-              />
-              <p class="readable_text">Ziad Yasser</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                  <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <img
-                src="images/Marawan.jpg"
-                style="aspect-ratio: 1; object-fit: cover"
-                class="image_7 rounded-circle"
-              />
-              <p class="readable_text">Marwan Khalil</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                  <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <img
-                src="images/Maryam.jpg"
-                style="aspect-ratio: 1; object-fit: cover"
-                class="image_7 rounded-circle"
-              />
-              <p class="readable_text">Maryam Helal</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                  <li>
-                    <a href="#"><img src="images/fb-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/twitter-icon.png" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/linkedin-icon.png" /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--team section end -->
-
+   
     <!--footer section start -->
     <footer>
       <!-- This will be rendered using the footer component in component/footer.js -->
@@ -412,6 +179,5 @@
     <script src="components/states.js"></script>
     <script src="components/banker.js"></script>
 
-  
   </body>
 </html>
