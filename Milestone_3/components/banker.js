@@ -68,8 +68,6 @@ function fillCreditCardTable(){
     if (table_header) {
         amountHeader.innerHTML = "";
     }
-    let transactions_table = document.getElementById("transactions_table");
-    let transactions_table_html = "";
     let applications_table = document.getElementById("applications_table");
     let applications_table_html = "";
     for (let i = 0; i < creditApplications.length; i++) {
